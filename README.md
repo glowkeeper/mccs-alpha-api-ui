@@ -5,8 +5,6 @@
 
 This will be a UI for [MCCS Alpha API](https://github.com/ic3network/mccs-alpha-api).
 
-![](/docs/paper/images/reportaidWriteSector.png)
-
 ## Table of Contents
 
 - [Usage](#usage)

@@ -1,0 +1,10 @@
+app/*.log
+app/.awcache
+app/.awcache/*
+app/dist
+app/dist/*
+app/node_modules
+app/node_modules/*
+app/build
+app/build/*
+app/nohup.out
