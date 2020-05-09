@@ -12,7 +12,7 @@
     "watch": "./node_modules/.bin/webpack --config ./webpack.dev.js --watch --mode development",
     "prod": "./node_modules/.bin/webpack --config ./webpack.prod.js --mode production && rm ./build/app.js",
     "test": "./node_modules/.bin/mocha",
-    "start": "http-server -p 8083 build/"
+    "start": "http-server -p 8080 build/"
   },
   "author": "Steve Huckle",
   "license": "LGPL-3.0",
