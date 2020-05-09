@@ -8,7 +8,7 @@
     "experimentalDecorators": true,
     "noImplicitAny": true,
     "noImplicitThis": false,
-    "keyofStringsOnly": true,
+    "keyofStringsOnly": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "strict": true,

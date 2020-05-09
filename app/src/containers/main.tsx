@@ -11,5 +11,8 @@ export const Main = () => {
   const classes = useStyles()
 
   return (
+      <div>
+        <p>Hellow World</p>
+      </div>
   )
 }
