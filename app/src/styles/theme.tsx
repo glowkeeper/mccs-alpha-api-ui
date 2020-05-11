@@ -117,7 +117,7 @@ const themeStyles = makeStyles({
   root: {
     padding: theme.spacing(1),
     margin: theme.spacing(1),
-    background: 'linear-gradient(45deg, #FFFFFF 50%, #FFFFFF 50%)'
+    background: 'linear-gradient(#FFFFFF, #FFFFFF)'
   },
   logo: {
     padding: theme.spacing(1),
@@ -133,7 +133,7 @@ const themeStyles = makeStyles({
   title: {
     padding: theme.spacing(1),
     margin: theme.spacing(1),
-    textAlign: 'right',
+    textAlign: 'center',
     background: 'linear-gradient(45deg, #BBDEFB 30%, #BBDEFB 90%)'
   },
   subTitle: {
@@ -146,7 +146,7 @@ const themeStyles = makeStyles({
     padding: theme.spacing(2),
     margin: theme.spacing(2),
     color: '#000000',
-    background: 'linear-gradient(45deg, #FFFFFF 50%, #FFFFFF 50%)'
+    background: 'linear-gradient(#FFFFFF, #FFFFFF)'
   },
   caption: {
     padding: theme.spacing(1),
@@ -155,28 +155,29 @@ const themeStyles = makeStyles({
     background: 'linear-gradient(45deg, #BBDEFB 30%, #BBDEFB 90%)'
   },
   footer: {
-    padding: 0,
-    margin: 0,
+    padding: theme.spacing(2),
+    margin: theme.spacing(1),
     textAlign: 'center',
     background:  'linear-gradient(#003ea7, #003ea7)'
   },
   button: {
     padding: theme.spacing(1),
     margin: theme.spacing(1),
+    textAlign: 'right',
     color: '#000000',
-    background:  'linear-gradient(45deg, #003ea7 50%, #003ea7 50%)'
+    background:  'linear-gradient(#003ea7, #003ea7)'
   },
   menu: {
-    padding: theme.spacing(1),
-    margin: theme.spacing(1),
+    padding: 0,
+    margin: 0,
     textAlign: 'left',
-    background:  'linear-gradient(45deg, #003ea7 50%, #003ea7 50%)'
+    background:  'linear-gradient(#003ea7, #003ea7)'
   }
 })
 
 const StyledMenu = withStyles({
   paper: {
-    background:  'linear-gradient(45deg, #0d47a1 50%, #0d47a1 50%)',
+    background:  'linear-gradient(#0d47a1, #0d47a1)',
     border: '1px solid #d3d4d5',
   },
 })((props: any) => (

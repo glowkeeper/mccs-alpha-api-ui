@@ -52,7 +52,7 @@ export const AppMenu = () => {
           aria-haspopup="true"
           onClick={handleClick}
         >
-          <DehazeIcon/>
+          <DehazeIcon fontSize='large'/>
         </Button>
         <StyledMenu
             id="customized-menu"
