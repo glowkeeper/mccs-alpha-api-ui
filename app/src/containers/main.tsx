@@ -18,51 +18,39 @@ export const Main = () => {
 
   return (
       <div>
-      <Paper className={classes.root}>
-        <Paper className={classes.header}>
+        <Paper className={classes.header} square={true}>
           <Grid container>
             <Grid item xs={12} sm={1}>
-              <img className={classes.button} src={logo}/>
+                <img className={classes.logo} src={logo}/>
             </Grid>
-            <Grid item xs={12} sm={8}>
-              <Paper className={classes.header}>
-                <h1>{App.title}</h1>
-              </Paper>
+            <Grid item xs={12} sm={10}>
+                &nbsp;
             </Grid>
-            <Grid item xs={12} sm={3}>
-              <Paper className={classes.appBar}>
+            <Grid item xs={12} sm={1}>
                 <AppMenu />
-              </Paper>
             </Grid>
           </Grid>
         </Paper>
-        <Paper className={classes.content}>
+        <Paper className={classes.content} square={true}>
           <Grid container>
-              <Paper className={classes.content}>
+            <Grid item xs={12}>
                 <Content />
-              </Paper>
+            </Grid>
           </Grid>
         </Paper>
-        <Paper className={classes.footer}>
+        <Paper className={classes.footer} square={true}>
           <Grid container>
             <Grid item xs={2}>
-              <Paper className={classes.footer}>
                 <Markdown escapeHtml={false} source={App.author} />
-              </Paper>
             </Grid>
             <Grid item xs={8}>
-            <Paper className={classes.title}>
-              <h3>{App.tagline}</h3>
-            </Paper>
+              <h3>{App.title}</h3>
             </Grid>
             <Grid item xs={2}>
-              <Paper className={classes.footer}>
-                <Markdown escapeHtml={false} source={App.copyright} />
-              </Paper>
+              <Markdown escapeHtml={false} source={App.copyright} />
             </Grid>
           </Grid>
         </Paper>
-      </Paper>
       </div>
   )
 }

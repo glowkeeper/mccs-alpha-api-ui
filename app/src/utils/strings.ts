@@ -25,7 +25,7 @@ class Home {
 
   static heading = 'Home'
 
-  static info = `blah`
+  static info = `Every new website should start with \"Hello World!\"`
 }
 
 class About {
@@ -40,42 +40,42 @@ class Help {
 
   static heading = 'MCCS Help'
 
-  static info = `blah`
+  static info = `I need some too`
 }
 
 class Faq {
 
-  static heading = 'MCCS Help'
+  static heading = 'FAQ'
 
-  static info = `blah`
+  static info = `Coming soon`
 }
 
 class Directory {
 
-  static heading = 'MCCS Help'
+  static heading = 'MCCS Directory'
 
-  static info = `blah`
+  static info = `Coming soon`
 }
 
 class Blog {
 
-  static heading = 'MCCS Help'
+  static heading = 'Blog'
 
-  static info = `blah`
+  static info = `Some really interesting content will appear here soon`
 }
 
 class Contact {
 
-  static heading = 'MCCS Help'
+  static heading = 'Contact'
 
-  static info = `blah`
+  static info = `a dot person at ocn dot com`
 }
 
 class Members {
 
-  static heading = 'MCCS Help'
+  static heading = 'Login'
 
-  static info = `blah`
+  static info = `Login form appearing here next`
 }
 
 export { App,

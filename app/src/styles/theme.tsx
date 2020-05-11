@@ -1,12 +1,22 @@
 import * as React from 'react'
 
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles'
+import { withStyles } from '@material-ui/core/styles'
+
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
+
+import red from '@material-ui/core/colors/red'
+import blue from '@material-ui/core/colors/blue'
+import green from '@material-ui/core/colors/blue'
+import indigo from '@material-ui/core/colors/indigo'
+import orange from '@material-ui/core/colors/orange'
+import yellow from '@material-ui/core/colors/yellow'
 
 // A theme with custom primary and secondary color.
 // It's optional.
 let theme = createMuiTheme ({
-
   spacing: 8,
   typography: {
     fontFamily: [
@@ -29,94 +39,74 @@ let theme = createMuiTheme ({
     h1: {
       fontSize: "2rem",
       fontWeight: 400,
-      fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\""
+      fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\"",
+      color: '#FFFFFF'
     },
     h2: {
       fontSize: "1.5rem",
       fontWeight: 400,
-      fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\""
+      fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\"",
+      color: '#FFFFFF'
     },
     h3: {
       fontSize: "1.25rem",
       fontWeight: 400,
-      fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\""
+      fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\"",
+      color: '#FFFFFF'
     },
     h4: {
       fontSize: "1.1rem",
       fontWeight: 400,
-      fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\""
+      fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\"",
+      color: '#000000'
     },
     subtitle1: {
       fontSize: "0.9rem",
       fontWeight: 400,
       fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\"",
       lineHeight: "1.5em",
-      color: "rgba(0, 0, 0, 0.92)"
+      color: indigo[900]
     },
     body1: {
       fontSize: "0.875rem",
       fontWeight: 400,
       fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\"",
       lineHeight: "1.46429em",
-      color: "rgba(0, 0, 0, 0.87)"
+      color: blue[200]
     },
     body2: {
       fontSize: "0.8rem",
       fontWeight: 400,
       fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\"",
       lineHeight: "1.4em",
-      color: "rgba(0, 0, 0, 0.77)"
+      color: blue[200]
     },
     caption: {
       fontSize: "0.75rem",
       fontWeight: 400,
       fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\"",
       lineHeight: "1.375em",
-      color: "rgba(0, 0, 0, 0.54)"
+      color: orange[900]
     },
     button: {
       fontSize: "0.875rem",
       textTransform: "uppercase",
       fontWeight: 500,
       fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\"",
-      color: "rgba(0, 0, 0, 0.87)"
+      color: '#003ea7'
     }
   },
   palette: {
     type: 'dark',
     background: {
-      default: '##BBDEFB',
+      default: '#FFFFFF',
     },
-    primary: {
-      light: '#4791db',
-      main: '#1976d2',
-      dark: '#115293'
-    },
-    secondary: {
-      light: '#e33371',
-      main: '#dc004e',
-      dark: '#9a0036'
-    },
-    error: {
-      light: '#e57373',
-      main: '#f44336',
-      dark: '#d32f2f'
-    },
-    warning: {
-        light: '#ffb74d',
-        main: '#ff9800',
-        dark: '#f57c00'
-    },
-    info: {
-        light: '#64b5f6',
-        main: '#2196f3',
-        dark: '#1976d2'
-    },
-    success: {
-        light: '#81c784',
-        main: '#4caf50',
-        dark: '#388e3c'
-    },
+    primary: blue,
+    secondary: indigo,
+    error: red,
+    warning: yellow,
+    info: orange,
+    success: green,
   }
 })
 
@@ -125,54 +115,38 @@ theme.spacing(4)
 
 const themeStyles = makeStyles({
   root: {
-    padding: theme.spacing(2),
-    background: 'linear-gradient(45deg, #BBDEFB 30%, #BBDEFB 90%)'
-  },
-  paper: {
     padding: theme.spacing(1),
     margin: theme.spacing(1),
-    textAlign: 'center',
+    background: 'linear-gradient(45deg, #FFFFFF 50%, #FFFFFF 50%)'
+  },
+  logo: {
+    padding: theme.spacing(1),
+    margin: theme.spacing(1),
+    textAlign: 'left',
   },
   header: {
-    padding: theme.spacing(1),
-    margin: theme.spacing(1),
+    padding: 0,
+    margin: 0,
     textAlign: 'center',
-    background: 'linear-gradient(45deg, #42A5F5 30%, #42A5F5 90%)'
+    background: 'linear-gradient(45deg, #003ea7 50%, #003ea7 50%)'
   },
   title: {
     padding: theme.spacing(1),
     margin: theme.spacing(1),
-    textAlign: 'center',
-    background: 'linear-gradient(45deg, #42A5F5 30%, #42A5F5 90%)'
+    textAlign: 'right',
+    background: 'linear-gradient(45deg, #BBDEFB 30%, #BBDEFB 90%)'
   },
   subTitle: {
     padding: theme.spacing(1),
     margin: theme.spacing(1),
     textAlign: 'center',
-    background: 'linear-gradient(45deg, #42A5F5 30%, #42A5F5 90%)'
+    background: 'linear-gradient(45deg, #BBDEFB 30%, #BBDEFB 90%)'
   },
   content: {
     padding: theme.spacing(2),
-    margin: theme.spacing(1),
-    background: 'linear-gradient(45deg, #BBDEFB 30%, #BBDEFB 90%)'
-  },
-  sider: {
-    padding: 0,
-    margin: theme.spacing(1),
-    textAlign: 'left',
-    background: 'linear-gradient(45deg, #BBDEFB 30%, #BBDEFB 90%)'
-  },
-  siderMenu: {
-    padding: 0,
-    margin: 0,
-    textAlign: 'left',
-    background: 'linear-gradient(45deg, #BBDEFB 30%, #BBDEFB 90%)'
-  },
-  appBar: {
-    padding: 0,
-    margin: theme.spacing(1),
-    textAlign: 'center',
-    background: 'linear-gradient(45deg, #42A5F5 30%, #42A5F5 90%)'
+    margin: theme.spacing(2),
+    color: '#000000',
+    background: 'linear-gradient(45deg, #FFFFFF 50%, #FFFFFF 50%)'
   },
   caption: {
     padding: theme.spacing(1),
@@ -181,18 +155,47 @@ const themeStyles = makeStyles({
     background: 'linear-gradient(45deg, #BBDEFB 30%, #BBDEFB 90%)'
   },
   footer: {
-    padding: theme.spacing(1),
-    margin: theme.spacing(1),
+    padding: 0,
+    margin: 0,
     textAlign: 'center',
-    background: 'linear-gradient(45deg, #42A5F5 30%, #42A5F5 90%)'
+    background:  'linear-gradient(#003ea7, #003ea7)'
   },
   button: {
+    padding: theme.spacing(1),
     margin: theme.spacing(1),
+    color: '#000000',
+    background:  'linear-gradient(45deg, #003ea7 50%, #003ea7 50%)'
   },
-
+  menu: {
+    padding: theme.spacing(1),
+    margin: theme.spacing(1),
+    textAlign: 'left',
+    background:  'linear-gradient(45deg, #003ea7 50%, #003ea7 50%)'
+  }
 })
 
-const menuStyles = makeStyles({
+const StyledMenu = withStyles({
+  paper: {
+    background:  'linear-gradient(45deg, #0d47a1 50%, #0d47a1 50%)',
+    border: '1px solid #d3d4d5',
+  },
+})((props: any) => (
+  <Menu
+    elevation={0}
+    getContentAnchorEl={null}
+    anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'center',
+    }}
+    transformOrigin={{
+      vertical: 'top',
+      horizontal: 'center',
+    }}
+    {...props}
+  />
+));
+
+const StyledMenuItem = withStyles((theme) => ({
   root: {
     '&:focus': {
       backgroundColor: theme.palette.primary.main,
@@ -201,6 +204,6 @@ const menuStyles = makeStyles({
       },
     },
   },
-})
+}))(MenuItem);
 
-export { theme, themeStyles, menuStyles }
+export { theme, themeStyles, StyledMenuItem, StyledMenu}

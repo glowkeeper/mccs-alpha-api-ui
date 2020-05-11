@@ -13,140 +13,124 @@ import ListItemText from '@material-ui/core/ListItemText'
 
 import DehazeIcon from '@material-ui/icons/Dehaze'
 import HomeIcon from '@material-ui/icons/Home'
-import SendIcon from '@material-ui/icons/Send'
 import InfoIcon from '@material-ui/icons/Info'
 import HelpIcon from '@material-ui/icons/Help'
+import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer'
+import StoreMallDirectoryIcon from '@material-ui/icons/StoreMallDirectory'
+import BookIcon from '@material-ui/icons/Book'
+import ContactMailIcon from '@material-ui/icons/ContactMail'
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
-import { themeStyles, menuStyles } from '../styles/theme';
+import Fade from '@material-ui/core/Fade';
+
+import { themeStyles, StyledMenu, StyledMenuItem } from '../styles/theme';
 
 import { Paths } from '../utils/strings'
 import { Paths as PathConfig } from '../utils/config'
 
-const StyledMenu = (props: any) => {
-
-  return (
-
-      <Menu
-        elevation={0}
-        getContentAnchorEl={null}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}
-        {...props}
-      />
-  )
-}
-
 export const AppMenu = () => {
 
   const themeClasses = themeStyles()
-  const menuClasses = menuStyles()
 
-  const [anchorEl, setAnchorEl] = React.useState(null)
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
 
   const handleClick = (event: any) => {
-    setAnchorEl(event.currentTarget)
-  }
+    setAnchorEl(event.currentTarget);
+  };
 
   const handleClose = () => {
-    setAnchorEl(null)
-  }
+    setAnchorEl(null);
+  };
 
+  // StyledMenuItem, StyledMenu
   return (
-      <div>
-
-          <Button
-            aria-controls="customized-menu"
-            aria-haspopup="true"
-            variant="contained"
-            color="primary"
-            onClick={handleClick}
-          >
-            <DehazeIcon/>
-          </Button>
-          <StyledMenu
+     <div>
+        <Button
+          className={themeClasses.button}
+          aria-controls="fade-menu"
+          aria-haspopup="true"
+          onClick={handleClick}
+        >
+          <DehazeIcon/>
+        </Button>
+        <StyledMenu
             id="customized-menu"
             anchorEl={anchorEl}
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}
-          >
-
+        >
             <Link to={PathConfig.home}>
-              <MenuItem className={menuClasses.root}>
+              <StyledMenuItem onClick={handleClose}>
                   <ListItemIcon>
                     <HomeIcon fontSize="small" />
                   </ListItemIcon>
                   <ListItemText primary={Paths.home} />
-              </MenuItem>
+              </StyledMenuItem>
             </Link>
 
             <Link to={PathConfig.about}>
-                <MenuItem className={menuClasses.root}>
+                <StyledMenuItem onClick={handleClose}>
                     <ListItemIcon>
-                      <SendIcon fontSize="small" />
+                      <InfoIcon fontSize="small" />
                     </ListItemIcon>
                     <ListItemText primary={Paths.about} />
-                </MenuItem>
+                </StyledMenuItem>
             </Link>
 
             <Link to={PathConfig.help}>
-                <MenuItem className={menuClasses.root}>
+                <StyledMenuItem onClick={handleClose}>
                     <ListItemIcon>
                       <HelpIcon fontSize="small" />
                     </ListItemIcon>
                     <ListItemText primary={Paths.help} />
-                </MenuItem>
+                </StyledMenuItem>
             </Link>
 
             <Link to={PathConfig.faq}>
-                <MenuItem className={menuClasses.root}>
+                <StyledMenuItem onClick={handleClose}>
                     <ListItemIcon>
-                      <SendIcon fontSize="small" />
+                      <QuestionAnswerIcon fontSize="small" />
                     </ListItemIcon>
                     <ListItemText primary={Paths.faq} />
-                </MenuItem>
+                </StyledMenuItem>
             </Link>
 
             <Link to={PathConfig.directory}>
-                <MenuItem className={menuClasses.root}>
+                <StyledMenuItem onClick={handleClose}>
                     <ListItemIcon>
-                      <SendIcon fontSize="small" />
+                      <StoreMallDirectoryIcon fontSize="small" />
                     </ListItemIcon>
                     <ListItemText primary={Paths.directory} />
-                </MenuItem>
+                </StyledMenuItem>
             </Link>
 
             <Link to={PathConfig.blog}>
-                <MenuItem className={menuClasses.root}>
+                <StyledMenuItem onClick={handleClose}>
                     <ListItemIcon>
-                      <SendIcon fontSize="small" />
+                      <BookIcon fontSize="small" />
                     </ListItemIcon>
                     <ListItemText primary={Paths.blog} />
-                </MenuItem>
+                </StyledMenuItem>
             </Link>
 
             <Link to={PathConfig.contact}>
-                <MenuItem className={menuClasses.root}>
+                <StyledMenuItem onClick={handleClose}>
                     <ListItemIcon>
-                      <SendIcon fontSize="small" />
+                      <ContactMailIcon fontSize="small" />
                     </ListItemIcon>
                     <ListItemText primary={Paths.contact} />
-                </MenuItem>
+                </StyledMenuItem>
             </Link>
 
             <Link to={PathConfig.members}>
-                <MenuItem className={menuClasses.root}>
+                <StyledMenuItem onClick={handleClose}>
                     <ListItemIcon>
-                      <SendIcon fontSize="small" />
+                      <AccountCircleIcon fontSize="small" />
                     </ListItemIcon>
                     <ListItemText primary={Paths.members} />
-                </MenuItem>
+                </StyledMenuItem>
             </Link>
         </StyledMenu>
     </div>
