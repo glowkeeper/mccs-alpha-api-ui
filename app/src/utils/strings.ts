@@ -2,7 +2,7 @@ import { Paths as configPaths } from './config'
 
 class App {
 
-  static readonly title='MCCS'
+  static readonly title='Open Credit Network'
   static readonly tagline='MCCS'
   static readonly copyright='MCCS © 2020'
   static readonly author='[Steven Huckle](https://glowkeeper.github.io/)'
@@ -13,8 +13,12 @@ class Paths {
   // AppBar
   static readonly home = 'Home'
   static readonly about = 'About'
-  static readonly overview = 'Overview'
-  static readonly help = 'Help'
+  static readonly help = 'How it Works'
+  static readonly faq = 'FAQ'
+  static readonly directory = 'Directory'
+  static readonly blog = 'Blog'
+  static readonly contact = 'Contact'
+  static readonly members = 'Member Area'
 }
 
 class Home {
@@ -32,14 +36,42 @@ class About {
 
 }
 
-class Overview {
+class Help {
 
-  static heading = 'Overview of MCCS'
+  static heading = 'MCCS Help'
 
-  static info = 'blah'
+  static info = `blah`
 }
 
-class Help {
+class Faq {
+
+  static heading = 'MCCS Help'
+
+  static info = `blah`
+}
+
+class Directory {
+
+  static heading = 'MCCS Help'
+
+  static info = `blah`
+}
+
+class Blog {
+
+  static heading = 'MCCS Help'
+
+  static info = `blah`
+}
+
+class Contact {
+
+  static heading = 'MCCS Help'
+
+  static info = `blah`
+}
+
+class Members {
 
   static heading = 'MCCS Help'
 
@@ -50,6 +82,10 @@ export { App,
          Paths,
          Home,
          About,
-         Overview,
-         Help
+         Help,
+         Faq,
+         Directory,
+         Blog,
+         Contact,
+         Members
        }

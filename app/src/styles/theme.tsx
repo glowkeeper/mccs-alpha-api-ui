@@ -123,7 +123,7 @@ let theme = createMuiTheme ({
 theme = responsiveFontSizes(theme)
 theme.spacing(4)
 
-const useStyles = makeStyles({
+const themeStyles = makeStyles({
   root: {
     padding: theme.spacing(2),
     background: 'linear-gradient(45deg, #BBDEFB 30%, #BBDEFB 90%)'
@@ -192,4 +192,15 @@ const useStyles = makeStyles({
 
 })
 
-export { theme, useStyles }
+const menuStyles = makeStyles({
+  root: {
+    '&:focus': {
+      backgroundColor: theme.palette.primary.main,
+      '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
+        color: theme.palette.common.white,
+      },
+    },
+  },
+})
+
+export { theme, themeStyles, menuStyles }

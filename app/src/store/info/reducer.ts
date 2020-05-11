@@ -1,9 +1,13 @@
 import { Reducer } from 'redux'
 import { InfoPageProps } from './types'
-import { About, Help, Home, Overview } from '../../utils/strings'
+import { About, Help, Home, Faq, Directory, Blog, Contact, Members } from '../../utils/strings'
 
 const initialState: InfoPageProps = {
   data: {
+      home: {
+        title: Home.heading,
+        data: Home.info
+      },
     about: {
       title: About.heading,
       data: About.info
@@ -12,13 +16,25 @@ const initialState: InfoPageProps = {
       title: Help.heading,
       data: Help.info
     },
-    home: {
-      title: Home.heading,
-      data: Home.info
+    faq: {
+      title: Faq.heading,
+      data: Faq.info
     },
-    overview: {
-      title: Overview.heading,
-      data: Overview.info
+    directory: {
+      title: Directory.heading,
+      data: Directory.info
+    },
+    blog: {
+      title: Blog.heading,
+      data: Blog.info
+    },
+    contact: {
+      title: Contact.heading,
+      data: Contact.info
+    },
+    members: {
+      title: Members.heading,
+      data: Members.info
     }
   }
 }
