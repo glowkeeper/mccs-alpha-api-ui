@@ -5,7 +5,7 @@ class Paths {
   static readonly help = '/help'
   static readonly faq = '/faq'
   static readonly directory = '/directory'
-  static readonly members = '/login'
+  static readonly members = '/signup'
   static readonly blog = '/blog'
   static readonly contact = '/contact'
 
