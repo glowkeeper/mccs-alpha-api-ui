@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
+import { themeStyles } from '../../../styles/theme'
+
 import { Formik, Form, Field, FormikProps, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import { LinearProgress } from '@material-ui/core'
@@ -49,7 +51,6 @@ interface SignupDispatchProps {
 
 type Props = FormProps & SignupDispatchProps
 
-
 class SignupForm extends React.Component<Props> {
 
     static defaultProps = {
@@ -57,7 +58,7 @@ class SignupForm extends React.Component<Props> {
         pass1: "",
         pass2: "",
         handleSubmit: (values: SignupProps) => {},
-        setFormFunctions: (formProps: FormData) => {}
+        setFormFunctions: (formProps: FormData) => {},
     }
 
   constructor (props: Props) {
@@ -77,8 +78,7 @@ class SignupForm extends React.Component<Props> {
 
     return (
       <div>
-        <h2>{Account.signupHeading}</h2>
-        <div>
+          <h2>{Account.signupHeading}</h2>
           <Formik
             initialValues={ {email: "", pass1: "", pass2: ""} }
             enableReinitialize={true}
@@ -86,11 +86,11 @@ class SignupForm extends React.Component<Props> {
             onSubmit={(values: FormProps, actions: any) => {
               this.handleSubmit(values, actions.setSubmitting, actions.resetForm)
             }}
-            render={(formProps: FormikProps<FormProps>) => (
+          >
+            {(formProps: FormikProps<FormProps>) => (
               <Form>
-                <FormControl fullWidth={true}>
                   <Field
-                    name='email'
+                    name='Email'
                     value={this.props.email}
                     label='email'
                     component={TextField}
@@ -99,29 +99,27 @@ class SignupForm extends React.Component<Props> {
                   <Field
                     name="pass1"
                     value={this.props.pass1}
-                    label='password'
+                    label='Password'
                     component={TextField}
                   />
                   <ErrorMessage name='pass1' />
                   <Field
                     name="pass2"
                     value={this.props.pass2}
-                    label='password'
+                    label='Reconfirm Password'
                     component={TextField}
                   />
-                  <ErrorMessage name='passBrasilians2' />
+                  <ErrorMessage name='pass2' />
                   <br />
                   {formProps.isSubmitting && <LinearProgress />}
                   <br />
                   <Button type='submit' variant="contained" color="primary" disabled={formProps.isSubmitting}>
                     Submit
                   </Button>
-                </FormControl>
               </Form>
-            )}
-          />
-        </div>
-        <TXHelper/>
+          )}
+          </Formik>
+          <TXHelper/>
       </div>
     )
   }

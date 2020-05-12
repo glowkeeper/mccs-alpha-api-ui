@@ -12,7 +12,7 @@ import logo from '../images/logo.png'
 
 import { Signup } from './pages/account/signup'
 
-class AppContent extends React.Component {
+class Content extends React.Component {
 
   render() {
 
@@ -38,4 +38,4 @@ class AppContent extends React.Component {
   }
 }
 
-export const Content = AppContent
+export { Content }
