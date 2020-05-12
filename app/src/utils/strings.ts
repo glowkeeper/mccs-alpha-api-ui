@@ -85,6 +85,9 @@ class Account {
   static readonly heading = "Account"
 
   static readonly signupHeading = 'Sign Up'
+  static readonly email ='Email'
+  static readonly password ='Password'
+  static readonly repeatPassword = 'Reconfirm Password'
   static readonly signupSuccess = 'Signup Successfull'
   static readonly signupFail = 'Signup Failed'
 

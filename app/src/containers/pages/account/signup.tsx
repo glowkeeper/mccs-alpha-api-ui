@@ -1,8 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-import { themeStyles } from '../../../styles/theme'
-
 import { Formik, Form, Field, FormikProps, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import { LinearProgress } from '@material-ui/core'
@@ -19,7 +17,6 @@ import { setFormFunctions } from '../../../store/helpers/forms/actions'
 import { signup } from '../../../store/account/signup/actions'
 
 import { TXHelper } from '../../io/apiTxHelper'
-
 import { Account } from '../../../utils/strings'
 
 const signupSchema = Yup.object().shape({
@@ -90,23 +87,20 @@ class SignupForm extends React.Component<Props> {
             {(formProps: FormikProps<FormProps>) => (
               <Form>
                   <Field
-                    name='Email'
-                    value={this.props.email}
-                    label='email'
+                    name='email'
+                    label={Account.email}
                     component={TextField}
                   />
                   <ErrorMessage name='email' />
                   <Field
                     name="pass1"
-                    value={this.props.pass1}
-                    label='Password'
+                    label={Account.password}
                     component={TextField}
                   />
                   <ErrorMessage name='pass1' />
                   <Field
                     name="pass2"
-                    value={this.props.pass2}
-                    label='Reconfirm Password'
+                    label={Account.repeatPassword}
                     component={TextField}
                   />
                   <ErrorMessage name='pass2' />

@@ -43,16 +43,14 @@ export const AppMenu = () => {
     setAnchorEl(null);
   };
 
-  // StyledMenuItem, StyledMenu
   return (
      <div>
         <Button
-          className={themeClasses.button}
           aria-controls="fade-menu"
           aria-haspopup="true"
           onClick={handleClick}
         >
-          <DehazeIcon fontSize='large'/>
+          <DehazeIcon className={themeClasses.button}/>
         </Button>
         <StyledMenu
             id="customized-menu"

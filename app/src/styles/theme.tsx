@@ -3,9 +3,11 @@ import * as React from 'react'
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
 import { makeStyles } from '@material-ui/styles'
 import { withStyles } from '@material-ui/core/styles'
+import styled from 'styled-components'
 
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
+import { Form } from 'formik'
 
 import red from '@material-ui/core/colors/red'
 import blue from '@material-ui/core/colors/blue'
@@ -40,19 +42,19 @@ let theme = createMuiTheme ({
       fontSize: "2rem",
       fontWeight: 400,
       fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\"",
-      color: '#FFFFFF'
+      color: '#000000'
     },
     h2: {
       fontSize: "1.5rem",
       fontWeight: 400,
       fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\"",
-      color: '#FFFFFF'
+      color: '#000000'
     },
     h3: {
       fontSize: "1.25rem",
       fontWeight: 400,
       fontFamily: "\"Helvetica Neue\", \"Arial\", \"sans-serif\", \"Roboto\"",
-      color: '#FFFFFF'
+      color: '#000000'
     },
     h4: {
       fontSize: "1.1rem",
@@ -101,11 +103,15 @@ let theme = createMuiTheme ({
     background: {
       default: '#FFFFFF',
     },
+    text: {
+      primary: "#000000",
+      secondary: "#FFFFFF"
+    },
     primary: blue,
     secondary: indigo,
     error: red,
-    warning: yellow,
-    info: orange,
+    warning: orange,
+    info: yellow,
     success: green,
   }
 })
@@ -117,7 +123,8 @@ const themeStyles = makeStyles({
   root: {
     padding: theme.spacing(1),
     margin: theme.spacing(1),
-    background: 'linear-gradient(#FFFFFF, #FFFFFF)'
+    background: 'linear-gradient(#FFFFFF, #FFFFFF)',
+    color: theme.palette.text.primary
   },
   logo: {
     padding: theme.spacing(1),
@@ -145,7 +152,7 @@ const themeStyles = makeStyles({
   content: {
     padding: theme.spacing(2),
     margin: theme.spacing(2),
-    color: '#000000',
+    color: theme.palette.text.primary,
     background: 'linear-gradient(#FFFFFF, #FFFFFF)'
   },
   caption: {
@@ -158,13 +165,16 @@ const themeStyles = makeStyles({
     padding: theme.spacing(2),
     margin: theme.spacing(1),
     textAlign: 'center',
+    color: theme.palette.text.secondary,
     background:  'linear-gradient(#003ea7, #003ea7)'
   },
   button: {
-    padding: theme.spacing(1),
-    margin: theme.spacing(1),
+    padding: 0,
+    margin: 0,
+    fontSize: "4rem",
+    fontWeight: 400,
     textAlign: 'right',
-    color: '#000000',
+    color: theme.palette.common.white,
     background:  'linear-gradient(#003ea7, #003ea7)'
   },
   menu: {
@@ -194,7 +204,7 @@ const StyledMenu = withStyles({
     }}
     {...props}
   />
-));
+))
 
 const StyledMenuItem = withStyles((theme) => ({
   root: {
@@ -205,6 +215,6 @@ const StyledMenuItem = withStyles((theme) => ({
       },
     },
   },
-}))(MenuItem);
+}))(MenuItem)
 
-export { theme, themeStyles, StyledMenuItem, StyledMenu}
+export { theme, themeStyles, StyledMenuItem, StyledMenu }
