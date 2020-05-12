@@ -20,12 +20,6 @@ import { TXHelper } from '../../io/apiTxHelper'
 
 import { Account } from '../../../utils/strings'
 
-interface FormProps {
-  email: string
-  pass1: string
-  pass2: string
-}
-
 const signupSchema = Yup.object().shape({
   email: Yup
     .string()
@@ -42,6 +36,12 @@ const signupSchema = Yup.object().shape({
     .required('Required')
 })
 
+interface FormProps {
+  email: string
+  pass1: string
+  pass2: string
+}
+
 interface SignupDispatchProps {
   handleSubmit: (values: SignupProps) => void
   setFormFunctions: (formProps: FormData) => void
@@ -49,7 +49,16 @@ interface SignupDispatchProps {
 
 type Props = FormProps & SignupDispatchProps
 
+
 class SignupForm extends React.Component<Props> {
+
+    static defaultProps = {
+        email: "",
+        pass1: "",
+        pass2: "",
+        handleSubmit: (values: SignupProps) => {},
+        setFormFunctions: (formProps: FormData) => {}
+    }
 
   constructor (props: Props) {
    super(props)
@@ -100,7 +109,7 @@ class SignupForm extends React.Component<Props> {
                     label='password'
                     component={TextField}
                   />
-                  <ErrorMessage name='pass2' />
+                  <ErrorMessage name='passBrasilians2' />
                   <br />
                   {formProps.isSubmitting && <LinearProgress />}
                   <br />
