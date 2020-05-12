@@ -1,17 +1,6 @@
 import { Action } from 'redux'
-
-export interface TxData {
-  summary: string,
-  info: object
-}
-
-export interface TxReport {
-  [tx: string]: TxData
-}
-
-export interface TxProps extends PayloadProps {
-  data: TxReport
-}
+import { ThunkDispatch } from 'redux-thunk'
+import { ApplicationState } from './store'
 
 export interface PayloadProps {
   data: object
@@ -21,3 +10,5 @@ export interface ActionProps extends Action {
   type: string
   payload: PayloadProps
 }
+
+export type AppDispatch = ThunkDispatch<ApplicationState, any, ActionProps>

@@ -1,8 +1,14 @@
 import { PayloadProps } from '../../types'
 
+export interface TxData {
+  summary: string,
+  info: object
+}
+
 export interface FormData {
   submitFunc: Function
   resetFunc: Function
+  data: TxData
 }
 
 export interface FormProps extends PayloadProps {
@@ -10,6 +16,7 @@ export interface FormProps extends PayloadProps {
 }
 
 export const enum FormActionTypes {
-  FORMFUNCTION_SUCCESS = '@@IATIReportActionTypes/FORMFUNCTION_SUCCESS',
-  FORMFUNCTION_FAILURE = '@@IATIReportActionTypes/FORMFUNCTION_FAILURE'
+  FORM_INIT = '@@FormActionTypes/FORM_INIT',
+  FORM_SUCCESS = '@@FormActionTypes/FORM_SUCCESS',
+  FORM_FAILURE = '@@FormActionTypes/FORM_FAILURE'
 }

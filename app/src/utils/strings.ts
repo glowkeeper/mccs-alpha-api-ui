@@ -4,7 +4,7 @@ class App {
 
   static readonly title='Open Credit Network'
   static readonly tagline='MCCS'
-  static readonly copyright='MCCS © 2020'
+  static readonly copyright='© Copyright 2020 Open Credit Network'
   static readonly author='[Steven Huckle](https://glowkeeper.github.io/)'
 }
 
@@ -16,9 +16,11 @@ class Paths {
   static readonly help = 'How it Works'
   static readonly faq = 'FAQ'
   static readonly directory = 'Directory'
+  static readonly members = 'Members Area'
   static readonly blog = 'Blog'
   static readonly contact = 'Contact'
-  static readonly members = 'Member Area'
+
+  static readonly signup = 'signup'
 }
 
 class Home {
@@ -78,6 +80,18 @@ class Members {
   static info = `Login form appearing here next`
 }
 
+class Account {
+
+  static readonly heading = "Account"
+
+  static readonly signupHeading = 'Sign Up'
+  static readonly signupSuccess = 'Signup Successfull'
+  static readonly signupFail = 'Signup Failed'
+
+  static readonly ErrorPassTooShort = "Password is too short - should be a minimum of 8 char\'s"
+  static readonly ErrorPassNotMatch = "Passwords do not match"
+}
+
 export { App,
          Paths,
          Home,
@@ -87,5 +101,6 @@ export { App,
          Directory,
          Blog,
          Contact,
-         Members
+         Members,
+         Account
        }

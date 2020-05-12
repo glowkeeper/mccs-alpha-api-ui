@@ -40,14 +40,12 @@ export const Main = () => {
         </Paper>
         <Paper className={classes.footer} square={true}>
           <Grid container>
-            <Grid item xs={2}>
-                <Markdown escapeHtml={false} source={App.author} />
-            </Grid>
-            <Grid item xs={8}>
-              <h3>{App.title}</h3>
-            </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={12}>
+              <img className={classes.logo} src={logo}/>
+              <br/>
               <Markdown escapeHtml={false} source={App.copyright} />
+            </Grid>
+            <Grid item xs={2}>
             </Grid>
           </Grid>
         </Paper>

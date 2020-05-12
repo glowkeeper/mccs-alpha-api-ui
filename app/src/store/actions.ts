@@ -1,4 +1,4 @@
-import { PayloadProps } from './types'
+import { PayloadProps, AppDispatch } from './types'
 
 export const storeAction = (type: string) => (payload: PayloadProps): object => {
   return {

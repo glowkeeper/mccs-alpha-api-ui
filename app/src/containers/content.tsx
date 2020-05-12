@@ -3,13 +3,14 @@ import * as React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 import { Info } from './pages/info/info'
-
 import { InfoTypes } from '../store/info/types'
 
 import { Paths } from '../utils/strings'
 import { Paths as PathConfig } from '../utils/config'
 
 import logo from '../images/logo.png'
+
+import { Signup } from './pages/account/signup'
 
 class AppContent extends React.Component {
 
@@ -25,7 +26,12 @@ class AppContent extends React.Component {
         <Route name={Paths.directory} path={PathConfig.directory} render={() => <Info type={InfoTypes.DIRECTORY} />} />
         <Route name={Paths.blog} path={PathConfig.blog} render={() => <Info type={InfoTypes.BLOG} />} />
         <Route name={Paths.contact} path={PathConfig.contact} render={() => <Info type={InfoTypes.CONTACT} />} />
-        <Route name={Paths.members} path={PathConfig.members} render={() => <Info type={InfoTypes.MEMBERS} />} />
+
+        <Route
+          name={Paths.signup}
+          path={PathConfig.signup}
+          render={() => <Signup />}
+        />
 
       </Switch>
     )

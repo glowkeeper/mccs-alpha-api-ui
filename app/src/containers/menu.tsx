@@ -106,6 +106,15 @@ export const AppMenu = () => {
                 </StyledMenuItem>
             </Link>
 
+            <Link to={PathConfig.members}>
+                <StyledMenuItem onClick={handleClose}>
+                    <ListItemIcon>
+                      <AccountCircleIcon fontSize="small" />
+                    </ListItemIcon>
+                    <ListItemText primary={Paths.members} />
+                </StyledMenuItem>
+            </Link>
+
             <Link to={PathConfig.blog}>
                 <StyledMenuItem onClick={handleClose}>
                     <ListItemIcon>
@@ -124,14 +133,6 @@ export const AppMenu = () => {
                 </StyledMenuItem>
             </Link>
 
-            <Link to={PathConfig.members}>
-                <StyledMenuItem onClick={handleClose}>
-                    <ListItemIcon>
-                      <AccountCircleIcon fontSize="small" />
-                    </ListItemIcon>
-                    <ListItemText primary={Paths.members} />
-                </StyledMenuItem>
-            </Link>
         </StyledMenu>
     </div>
   )

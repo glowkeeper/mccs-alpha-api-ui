@@ -5,9 +5,22 @@ class Paths {
   static readonly help = '/help'
   static readonly faq = '/faq'
   static readonly directory = '/directory'
+  static readonly members = '/login'
   static readonly blog = '/blog'
   static readonly contact = '/contact'
-  static readonly members = '/login'
+
+  static readonly signup = '/signup'
 }
 
-export { Paths }
+class Remote {
+
+    static readonly secure = 'https://'
+    static readonly insecure = 'http://'
+
+    static readonly server = 'addess.url.com'
+    static readonly port = '8080'
+    static readonly home = '/'
+    static readonly signup = '/signup'
+}
+
+export { Paths, Remote }
