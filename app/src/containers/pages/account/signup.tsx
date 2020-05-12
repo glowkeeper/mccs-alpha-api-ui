@@ -5,7 +5,7 @@ import { Formik, Form, Field, FormikProps, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import { LinearProgress } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
-import FormControl from '@material-ui/core/FormControl'
+import { FormControl } from '@material-ui/core';
 import { TextField } from "material-ui-formik-components"
 
 import { ApplicationState } from '../../../store'
@@ -86,6 +86,7 @@ class SignupForm extends React.Component<Props> {
           >
             {(formProps: FormikProps<FormProps>) => (
               <Form>
+                <FormControl fullWidth={false}>
                   <Field
                     name='email'
                     label={Account.email}
@@ -110,6 +111,7 @@ class SignupForm extends React.Component<Props> {
                   <Button type='submit' variant="contained" color="primary" disabled={formProps.isSubmitting}>
                     Submit
                   </Button>
+                </FormControl>
               </Form>
           )}
           </Formik>
