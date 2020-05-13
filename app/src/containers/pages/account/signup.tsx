@@ -6,7 +6,6 @@ import Grid from '@material-ui/core/Grid'
 import { Formik, Form, Field, FormikProps, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import { LinearProgress } from '@material-ui/core'
-import Button from '@material-ui/core/Button'
 import { FormControl } from '@material-ui/core';
 import { TextField } from "material-ui-formik-components"
 
@@ -20,6 +19,7 @@ import SendIcon from '@material-ui/icons/Send'
 import { setFormFunctions } from '../../../store/helpers/forms/actions'
 import { signup } from '../../../store/account/signup/actions'
 
+import { SignupButton } from '../../../styles/theme'
 import { TXHelper } from '../../../components/io/apiTxHelper'
 import { Account } from '../../../config/strings'
 
@@ -119,9 +119,9 @@ class SignupForm extends React.Component<Props> {
                 <br />
                 <Grid container>
                   <Grid item xs={12} sm={3}>
-                      <Button type='submit' variant="contained" color="primary" disabled={formProps.isSubmitting} endIcon={<SendIcon/>}>
+                      <SignupButton type='submit' variant="contained" color="primary" disabled={formProps.isSubmitting} endIcon={<SendIcon/>}>
                         {Account.signupButton}
-                      </Button>
+                      </SignupButton>
                   </Grid>
                   <Grid item xs={12} sm={9}>
                        &nbsp;

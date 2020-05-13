@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { render } from "react-dom"
-import { configureStore } from './store'
-import Root from './components/root'
+import { configureStore } from '../store'
+import Root from './root'
 
 const initialState = (window as any).initialReduxState
 const store = configureStore(initialState)

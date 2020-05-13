@@ -17,7 +17,7 @@ var config = {
   entry: {
     app: [
       '@babel/polyfill',
-      './src/index.tsx'
+      './src/components/index.tsx'
     ]
   },
   output: {
