@@ -26,8 +26,11 @@ export const signup = (details: SignupProps) => {
         if (!response.ok) {
           throw new Error(response.statusText)
         }
+        console.log("result: ", response)
+        return response.json()
       })
       .then(data => {
+          console.log("data: ", data)
           const txData = {
             summary: `${Account.signupSuccess}`,
           }
