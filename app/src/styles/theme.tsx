@@ -151,7 +151,7 @@ const themeStyles = makeStyles({
   content: {
     padding: theme.spacing(2),
     margin: theme.spacing(2),
-    color: theme.palette.text.primary,
+    color: '#003ea7',
     background: 'linear-gradient(#FFFFFF, #FFFFFF)'
   },
   caption: {
@@ -173,6 +173,7 @@ const themeStyles = makeStyles({
     fontSize: "4rem",
     fontWeight: 400,
     textAlign: 'right',
+    textTransform: 'none',
     color: theme.palette.common.white,
     background:  'linear-gradient(#003ea7, #003ea7)'
   },
