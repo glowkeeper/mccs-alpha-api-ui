@@ -3,8 +3,7 @@ import { FormActionTypes, FormProps } from './types'
 
 const initialState: FormProps = {
   data: {
-    summary: "",
-    info: {}
+    summary: ""
   }
 }
 

@@ -9,7 +9,7 @@ import { TxData } from '../../store/helpers/forms/types'
 import { initialise } from '../../store/helpers/forms/actions'
 
 interface TxStateProps {
-  data: TxData
+  info: TxData
 }
 
 interface TxDispatchProps {
@@ -30,21 +30,10 @@ class Tx extends React.Component<Props> {
 
   render() {
 
-    let xs = ""
-    //console.log('transaction: ', this.props.tx)
-    if (typeof this.props.data != "undefined" ) {
-      const tx = this.props.data
-      xs += `${tx.summary}<br /><br />`
-          //console.log('transaction: ', this.props.tx)
-      Object.entries(tx.info).forEach((entry) => {
-        //console.log(entry[0])
-        if ( (entry[0] != "data") &&
-             (entry[0] != "raw") &&
-              (entry[0] != "wait") ) {
-          xs += `**${entry[0]}**: ${entry[1]}<br />`
-        }
-       })
-    }
+    console.log("Propws: ", this.props)
+
+    const xs =  this.props.info.summary
+    console.log("Prop  ws: ", xs)
 
     return (
       <React.Fragment>
@@ -56,9 +45,9 @@ class Tx extends React.Component<Props> {
 }
 
 const mapStateToProps = (state: ApplicationState): TxStateProps => {
-  //console.log(state.orgReader)
+  console.log("Tx state: ", state.forms.data)
   return {
-    data: state.forms.data as TxData
+    info: state.forms.data as TxData
   }
 }
 

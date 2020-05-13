@@ -7,8 +7,7 @@ import { FormActionTypes, TxData } from './types'
 export const initialise = () => {
   return async (dispatch: AppDispatch) => {
     const initData: TxData = {
-        summary: "",
-        info: {}
+        summary: ""
     }
     await dispatch(write({data: initData})(FormActionTypes.FORM_INIT))
   }

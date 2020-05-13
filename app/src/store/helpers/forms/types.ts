@@ -1,8 +1,7 @@
 import { PayloadProps } from '../../types'
 
 export interface TxData {
-  summary: string,
-  info: object
+  summary: string
 }
 
 export interface FormProps extends PayloadProps {
