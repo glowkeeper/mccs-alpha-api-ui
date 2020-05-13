@@ -3,12 +3,8 @@ import { FormActionTypes, FormProps } from './types'
 
 const initialState: FormProps = {
   data: {
-    submitFunc: (function(submit: boolean) { return submit }),
-    resetFunc: (function() { return null }),
-    data: {
-        summary: "",
-        info: {}
-    }
+    summary: "",
+    info: {}
   }
 }
 

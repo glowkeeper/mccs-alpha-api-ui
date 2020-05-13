@@ -17,8 +17,8 @@ class Remote {
     static readonly secure = 'https://'
     static readonly insecure = 'http://'
 
-    static readonly server = 'addess.url.com'
-    static readonly port = '8080'
+    static readonly server = 'mccs-alpha-api.ic3.dev/api/v1'
+    static readonly port = '80'
     static readonly home = '/'
     static readonly signup = '/signup'
 }

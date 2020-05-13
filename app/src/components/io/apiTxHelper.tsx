@@ -6,28 +6,26 @@ import Markdown from 'react-markdown'
 import { ApplicationState } from '../../store'
 import { ActionProps, AppDispatch } from '../../store/types'
 import { TxData } from '../../store/helpers/forms/types'
+import { initialise } from '../../store/helpers/forms/actions'
 
-interface TXProps {
-  submittingFunc: Function,
-  resettingFunc: Function
+interface TxStateProps {
   data: TxData
 }
 
-type Props = TXProps
+interface TxDispatchProps {
+  initialise: () => void
+}
 
-class TX extends React.Component<Props> {
+type Props = TxStateProps & TxDispatchProps
+
+class Tx extends React.Component<Props> {
 
   constructor (props: Props) {
    super(props)
   }
 
-  componentDidUpdate(previousProps: Props) {
-    if(previousProps.data != this.props.data &&
-       typeof this.props.data != 'undefined' ) {
-      //console.log('Type check!: ', typeof this.props.tx)
-      this.props.submittingFunc(false)
-      this.props.resettingFunc()
-    }
+  componentDidMount() {
+    this.props.initialise()
   }
 
   render() {
@@ -35,8 +33,8 @@ class TX extends React.Component<Props> {
     let xs = ""
     //console.log('transaction: ', this.props.tx)
     if (typeof this.props.data != "undefined" ) {
-        const tx = this.props.data
-        xs += `${tx.summary}<br /><br />`
+      const tx = this.props.data
+      xs += `${tx.summary}<br /><br />`
           //console.log('transaction: ', this.props.tx)
       Object.entries(tx.info).forEach((entry) => {
         //console.log(entry[0])
@@ -45,7 +43,7 @@ class TX extends React.Component<Props> {
               (entry[0] != "wait") ) {
           xs += `**${entry[0]}**: ${entry[1]}<br />`
         }
-      })
+       })
     }
 
     return (
@@ -57,15 +55,20 @@ class TX extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: ApplicationState): TXProps => {
+const mapStateToProps = (state: ApplicationState): TxStateProps => {
   //console.log(state.orgReader)
   return {
-    submittingFunc: state.forms.data.submitFunc,
-    resettingFunc: state.forms.data.resetFunc,
-    data: state.forms.data.data as TxData
+    data: state.forms.data as TxData
   }
 }
 
-export const TXHelper = connect<TXProps, {}, {}, ApplicationState>(
-  mapStateToProps
-)(TX)
+const mapDispatchToProps = (dispatch: AppDispatch): TxDispatchProps => {
+  return {
+    initialise: () => dispatch(initialise())
+  }
+}
+
+export const TxHelper = connect<TxStateProps, TxDispatchProps, {}, ApplicationState>(
+  mapStateToProps,
+  mapDispatchToProps
+)(Tx)

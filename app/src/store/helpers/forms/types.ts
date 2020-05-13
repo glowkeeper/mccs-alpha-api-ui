@@ -5,14 +5,8 @@ export interface TxData {
   info: object
 }
 
-export interface FormData {
-  submitFunc: Function
-  resetFunc: Function
-  data: TxData
-}
-
 export interface FormProps extends PayloadProps {
-  data: FormData
+  data: TxData
 }
 
 export const enum FormActionTypes {

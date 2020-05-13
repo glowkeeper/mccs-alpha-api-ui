@@ -28,6 +28,17 @@ import { themeStyles, StyledMenu, StyledMenuItem } from '../styles/theme';
 import { Paths } from '../config/strings'
 import { Paths as PathConfig } from '../config/paths'
 
+const URLLink = ({ url, children }: any) => (
+  <NavLink
+    to={url = `${url}`}
+    activeStyle={{
+        fontWeight: "bold"
+    }}
+  >
+    {children}
+  </NavLink>
+)
+
 export const AppMenu = () => {
 
   const themeClasses = themeStyles()
@@ -59,117 +70,77 @@ export const AppMenu = () => {
             open={Boolean(anchorEl)}
             onClose={handleClose}
         >
-            <NavLink
-                to={PathConfig.home}
-                activeStyle={{
-                    fontWeight: "bold"
-                }}
-            >
+            <URLLink url={PathConfig.home}>
               <StyledMenuItem onClick={handleClose}>
                   <ListItemIcon>
-                    <HomeIcon fontSize="small" />
+                    <HomeIcon/>
                   </ListItemIcon>
                   <ListItemText primary={Paths.home} />
               </StyledMenuItem>
-            </NavLink>
+            </URLLink>
 
-            <NavLink
-                to={PathConfig.about}
-                activeStyle={{
-                    fontWeight: "bold"
-                }}
-            >
+            <URLLink url={PathConfig.about}>
                 <StyledMenuItem onClick={handleClose}>
                     <ListItemIcon>
-                      <InfoIcon fontSize="small" />
+                      <InfoIcon/>
                     </ListItemIcon>
                     <ListItemText primary={Paths.about} />
                 </StyledMenuItem>
-            </NavLink>
+            </URLLink>
 
-            <NavLink
-                to={PathConfig.help}
-                activeStyle={{
-                    fontWeight: "bold"
-                }}
-            >
+            <URLLink url={PathConfig.help}>
                 <StyledMenuItem onClick={handleClose}>
                     <ListItemIcon>
-                      <HelpIcon fontSize="small" />
+                      <HelpIcon/>
                     </ListItemIcon>
                     <ListItemText primary={Paths.help} />
                 </StyledMenuItem>
-            </NavLink>
+            </URLLink>
 
-            <NavLink
-                to={PathConfig.faq}
-                activeStyle={{
-                    fontWeight: "bold"
-                }}
-            >
+            <URLLink url={PathConfig.faq}>
                 <StyledMenuItem onClick={handleClose}>
                     <ListItemIcon>
-                      <QuestionAnswerIcon fontSize="small" />
+                      <QuestionAnswerIcon/>
                     </ListItemIcon>
                     <ListItemText primary={Paths.faq} />
                 </StyledMenuItem>
-            </NavLink>
+            </URLLink>
 
-            <NavLink
-                to={PathConfig.directory}
-                activeStyle={{
-                    fontWeight: "bold"
-                }}
-            >
+            <URLLink url={PathConfig.directory}>
                 <StyledMenuItem onClick={handleClose}>
                     <ListItemIcon>
-                      <StoreMallDirectoryIcon fontSize="small" />
+                      <StoreMallDirectoryIcon/>
                     </ListItemIcon>
                     <ListItemText primary={Paths.directory} />
                 </StyledMenuItem>
-            </NavLink>
+            </URLLink>
 
-            <NavLink
-                to={PathConfig.members}
-                activeStyle={{
-                    fontWeight: "bold"
-                }}
-            >
+            <URLLink url={PathConfig.members}>
                 <StyledMenuItem onClick={handleClose}>
                     <ListItemIcon>
-                      <AccountCircleIcon fontSize="small" />
+                      <AccountCircleIcon/>
                     </ListItemIcon>
                     <ListItemText primary={Paths.members} />
                 </StyledMenuItem>
-            </NavLink>
+            </URLLink>
 
-            <NavLink
-                to={PathConfig.blog}
-                activeStyle={{
-                    fontWeight: "bold"
-                }}
-            >
+            <URLLink url={PathConfig.blog}>
                 <StyledMenuItem onClick={handleClose}>
                     <ListItemIcon>
-                      <BookIcon fontSize="small" />
+                      <BookIcon/>
                     </ListItemIcon>
                     <ListItemText primary={Paths.blog} />
                 </StyledMenuItem>
-            </NavLink>
+            </URLLink>
 
-            <NavLink
-                to={PathConfig.contact}
-                activeStyle={{
-                    fontWeight: "bold"
-                }}
-            >
+            <URLLink url={PathConfig.contact}>
                 <StyledMenuItem onClick={handleClose}>
                     <ListItemIcon>
-                      <ContactMailIcon fontSize="small" />
+                      <ContactMailIcon/>
                     </ListItemIcon>
                     <ListItemText primary={Paths.contact} />
                 </StyledMenuItem>
-            </NavLink>
+            </URLLink>
 
         </StyledMenu>
     </div>

@@ -12,15 +12,14 @@ import { TextField } from "material-ui-formik-components"
 import { ApplicationState } from '../../../store'
 import { ActionProps, AppDispatch } from '../../../store/types'
 import { SignupProps } from '../../../store/account/types'
-import { FormData } from '../../../store/helpers/forms/types'
+import { TxData } from '../../../store/helpers/forms/types'
 
 import SendIcon from '@material-ui/icons/Send'
 
-import { setFormFunctions } from '../../../store/helpers/forms/actions'
 import { signup } from '../../../store/account/signup/actions'
 
 import { SignupButton } from '../../../styles/theme'
-import { TXHelper } from '../../../components/io/apiTxHelper'
+import { TxHelper } from '../../../components/io/apiTxHelper'
 import { Account } from '../../../config/strings'
 
 const signupSchema = Yup.object().shape({
@@ -45,12 +44,15 @@ interface FormProps {
   pass2: string
 }
 
-interface SignupDispatchProps {
-  handleSubmit: (values: SignupProps) => void
-  setFormFunctions: (formProps: FormData) => void
+interface SignupStateProps {
+  url: any
 }
 
-type Props = FormProps & SignupDispatchProps
+interface SignupDispatchProps {
+  handleSubmit: (values: SignupProps) => void
+}
+
+type Props = FormProps & SignupStateProps & SignupDispatchProps
 
 class SignupForm extends React.Component<Props> {
 
@@ -58,16 +60,15 @@ class SignupForm extends React.Component<Props> {
         email: "",
         pass1: "",
         pass2: "",
-        handleSubmit: (values: SignupProps) => {},
-        setFormFunctions: (formProps: FormData) => {},
+        url: "",
+        handleSubmit: (values: SignupProps) => {}
     }
 
   constructor (props: Props) {
    super(props)
   }
 
-  handleSubmit = (values: FormProps, setSubmitting: Function, reset: Function) => {
-    this.props.setFormFunctions({submitFunc: setSubmitting, resetFunc: reset, data: { summary: "", info: {} } } )
+  handleSubmit = (values: FormProps, actions: any) => {
     const signupInfo: SignupProps = {
         email: values.email,
         password: values.pass1
@@ -76,6 +77,8 @@ class SignupForm extends React.Component<Props> {
   }
 
   render() {
+
+      console.log(this.props.url)
 
     return (
 
@@ -90,7 +93,7 @@ class SignupForm extends React.Component<Props> {
           enableReinitialize={true}
           validationSchema={signupSchema}
           onSubmit={(values: FormProps, actions: any) => {
-            this.handleSubmit(values, actions.setSubmitting, actions.resetForm)
+            this.handleSubmit(values, actions.resetForm)
           }}
         >
           {(formProps: FormikProps<FormProps>) => (
@@ -131,7 +134,7 @@ class SignupForm extends React.Component<Props> {
             </Form>
         )}
         </Formik>
-        <TXHelper/>
+        <TxHelper/>
         </Grid>
         <Grid item xs={12} sm={3}>
             &nbsp;
@@ -141,14 +144,19 @@ class SignupForm extends React.Component<Props> {
   }
 }
 
-const mapDispatchToProps = (dispatch: AppDispatch): SignupDispatchProps => {
+const mapStateToProps = (state: ApplicationState, ownProps: any): SignupStateProps => {
   return {
-    handleSubmit: (values: SignupProps) => dispatch(signup(values)),
-    setFormFunctions: (formProps: FormData) => dispatch(setFormFunctions(formProps))
+    url: ownProps
   }
 }
 
-export const Signup = connect<null, SignupDispatchProps, {}, ApplicationState>(
-  null,
+const mapDispatchToProps = (dispatch: AppDispatch): SignupDispatchProps => {
+  return {
+    handleSubmit: (values: SignupProps) => dispatch(signup(values))
+  }
+}
+
+export const Signup = connect<SignupStateProps, SignupDispatchProps, {}, ApplicationState>(
+  mapStateToProps,
   mapDispatchToProps
 )(SignupForm)
