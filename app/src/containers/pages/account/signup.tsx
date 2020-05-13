@@ -44,15 +44,11 @@ interface FormProps {
   pass2: string
 }
 
-interface SignupStateProps {
-  url: any
-}
-
 interface SignupDispatchProps {
   handleSubmit: (values: SignupProps) => void
 }
 
-type Props = FormProps & SignupStateProps & SignupDispatchProps
+type Props = FormProps & SignupDispatchProps
 
 class SignupForm extends React.Component<Props> {
 
@@ -77,8 +73,6 @@ class SignupForm extends React.Component<Props> {
   }
 
   render() {
-
-      console.log(this.props.url)
 
     return (
 
@@ -144,19 +138,13 @@ class SignupForm extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: ApplicationState, ownProps: any): SignupStateProps => {
-  return {
-    url: ownProps
-  }
-}
-
 const mapDispatchToProps = (dispatch: AppDispatch): SignupDispatchProps => {
   return {
     handleSubmit: (values: SignupProps) => dispatch(signup(values))
   }
 }
 
-export const Signup = connect<SignupStateProps, SignupDispatchProps, {}, ApplicationState>(
-  mapStateToProps,
+export const Signup = connect<null, SignupDispatchProps, {}, ApplicationState>(
+  null,
   mapDispatchToProps
 )(SignupForm)
