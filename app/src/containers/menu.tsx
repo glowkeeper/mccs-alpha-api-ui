@@ -25,8 +25,8 @@ import Fade from '@material-ui/core/Fade';
 
 import { themeStyles, StyledMenu, StyledMenuItem } from '../styles/theme';
 
-import { Paths } from '../utils/strings'
-import { Paths as PathConfig } from '../utils/config'
+import { Paths } from '../config/strings'
+import { Paths as PathConfig } from '../config/paths'
 
 export const AppMenu = () => {
 

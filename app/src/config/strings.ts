@@ -1,4 +1,4 @@
-import { Paths as configPaths } from './config'
+import { Paths as configPaths } from './paths'
 
 class App {
 

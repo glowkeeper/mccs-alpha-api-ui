@@ -6,8 +6,8 @@ import { write } from '../../actions'
 import { SignupProps } from '../types'
 import { FormActionTypes, TxData } from '../../helpers/forms/types'
 
-import { Account } from '../../../utils/strings'
-import { Remote } from '../../../utils/config'
+import { Account } from '../../../config/strings'
+import { Remote } from '../../../config/paths'
 
 export const signup = (details: SignupProps) => {
   return async (dispatch: AppDispatch) => {

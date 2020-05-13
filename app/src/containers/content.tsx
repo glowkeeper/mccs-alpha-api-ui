@@ -5,8 +5,8 @@ import { Switch, Route } from 'react-router-dom'
 import { Info } from './pages/info/info'
 import { InfoTypes } from '../store/info/types'
 
-import { Paths } from '../utils/strings'
-import { Paths as PathConfig } from '../utils/config'
+import { Paths } from '../config/strings'
+import { Paths as PathConfig } from '../config/paths'
 
 import logo from '../images/logo.png'
 

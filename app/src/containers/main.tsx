@@ -6,7 +6,7 @@ import Paper from '@material-ui/core/Paper'
 
 import { AppMenu } from './menu'
 import { Content } from './content'
-import { App } from '../utils/strings'
+import { App } from '../config/strings'
 
 import { themeStyles } from '../styles/theme';
 

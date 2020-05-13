@@ -3,7 +3,6 @@ import * as React from 'react'
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
 import { makeStyles } from '@material-ui/styles'
 import { withStyles } from '@material-ui/core/styles'
-import styled from 'styled-components'
 
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'

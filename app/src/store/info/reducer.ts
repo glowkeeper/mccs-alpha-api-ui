@@ -1,6 +1,6 @@
 import { Reducer } from 'redux'
 import { InfoPageProps } from './types'
-import { About, Help, Home, Faq, Directory, Blog, Contact, Members } from '../../utils/strings'
+import { About, Help, Home, Faq, Directory, Blog, Contact, Members } from '../../config/strings'
 
 const initialState: InfoPageProps = {
   data: {
