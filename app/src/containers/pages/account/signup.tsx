@@ -20,7 +20,7 @@ import SendIcon from '@material-ui/icons/Send'
 import { setFormFunctions } from '../../../store/helpers/forms/actions'
 import { signup } from '../../../store/account/signup/actions'
 
-import { TXHelper } from '../../io/apiTxHelper'
+import { TXHelper } from '../../../components/io/apiTxHelper'
 import { Account } from '../../../config/strings'
 
 const signupSchema = Yup.object().shape({

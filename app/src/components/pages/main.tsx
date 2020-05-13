@@ -4,13 +4,13 @@ import Markdown from 'react-markdown'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 
-import { AppMenu } from './menu'
-import { Content } from './content'
-import { App } from '../config/strings'
+import { AppMenu } from '../menu'
+import { Content } from '../content'
+import { App } from '../../config/strings'
 
-import { themeStyles } from '../styles/theme';
+import { themeStyles } from '../../styles/theme';
 
-import logo from '../images/logo.png'
+import logo from '../../images/logo.png'
 
 export const Main = () => {
 

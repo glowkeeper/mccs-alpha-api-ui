@@ -10,7 +10,7 @@ import { Paths as PathConfig } from '../config/paths'
 
 import logo from '../images/logo.png'
 
-import { Signup } from './pages/account/signup'
+import { Signup } from '../containers/pages/account/signup'
 
 class Content extends React.Component {
 
