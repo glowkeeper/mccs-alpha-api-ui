@@ -89,10 +89,10 @@ class Account {
   static readonly password ='Password'
   static readonly repeatPassword = 'Reconfirm Password'
   static readonly signupButton = 'Create'
-  static readonly signupSuccess = 'Signup Successfull'
+  static readonly signupSuccess = 'Signup Successful'
   static readonly signupFail = 'Signup Failed'
 
-  static readonly ErrorPassTooShort = "Password is too short - should be a minimum of 8 char\'s"
+  static readonly ErrorPassTooShort = "Password must contain at least 8 characters"
   static readonly ErrorPassNotMatch = "Passwords do not match"
 }
 

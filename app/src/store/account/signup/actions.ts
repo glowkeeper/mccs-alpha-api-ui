@@ -15,7 +15,6 @@ export const signup = (details: SignupProps) => {
 
     let actionType = FormActionTypes.FORM_FAILURE
       const url = `${Remote.insecure}${Remote.server}${Remote.signup}`
-      console.log("URL: ", url)
       fetch(url, {
         method: 'POST',
         headers: {
@@ -29,7 +28,6 @@ export const signup = (details: SignupProps) => {
         }
       })
       .then(data => {
-          console.log('Success:', data);
           const txData = {
             summary: `${Account.signupSuccess}`,
           }
@@ -38,13 +36,10 @@ export const signup = (details: SignupProps) => {
           dispatch(write({data: {data: txData}})(actionType))
       })
      .catch(error => {
-         //console.log("error; ", error.message)
           const txData = {
               summary: `${Account.signupFail}: ${error.message}`
           }
           dispatch(write({data: txData})(actionType))
-          //history.push(`${Paths.signup}`)
-          //console.log(`${Account.signupFail}`, error.message)
      })
   }
 }

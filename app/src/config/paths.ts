@@ -10,6 +10,7 @@ class Paths {
   static readonly contact = '/contact'
 
   static readonly signup = '/signup'
+  static readonly user = '/user'
 }
 
 class Remote {
@@ -21,6 +22,7 @@ class Remote {
     static readonly port = '80'
     static readonly home = '/'
     static readonly signup = '/signup'
+    static readonly user = '/user'
 }
 
 export { Paths, Remote }

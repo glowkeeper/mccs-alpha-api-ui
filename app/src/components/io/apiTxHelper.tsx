@@ -30,10 +30,7 @@ class Tx extends React.Component<Props> {
 
   render() {
 
-    console.log("Propws: ", this.props)
-
     const xs =  this.props.info.summary
-    console.log("Prop  ws: ", xs)
 
     return (
       <React.Fragment>
@@ -45,7 +42,6 @@ class Tx extends React.Component<Props> {
 }
 
 const mapStateToProps = (state: ApplicationState): TxStateProps => {
-  console.log("Tx state: ", state.forms.data)
   return {
     info: state.forms.data as TxData
   }
