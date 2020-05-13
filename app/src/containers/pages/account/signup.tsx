@@ -38,38 +38,64 @@ const signupSchema = Yup.object().shape({
     .required('Required')
 })
 
+interface FormState {
+    submitFunc(submitting: false): Function,
+    resetFunc(): Function
+}
+
 interface FormProps {
   email: string
   pass1: string
   pass2: string
 }
 
+interface SignupStateProps {
+  info: TxData
+}
+
 interface SignupDispatchProps {
   handleSubmit: (values: SignupProps) => void
 }
 
-type Props = FormProps & SignupDispatchProps
+type Props = FormProps & SignupStateProps & SignupDispatchProps
 
-class SignupForm extends React.Component<Props> {
+class SignupForm extends React.Component<Props, FormState> {
 
     static defaultProps = {
         email: "",
         pass1: "",
         pass2: "",
         url: "",
+        info: { summary: ""},
         handleSubmit: (values: SignupProps) => {}
     }
 
   constructor (props: Props) {
    super(props)
+   this.state = {
+      submitFunc: (submitting: false) => Function,
+      resetFunc: () => Function
+    }
   }
 
-  handleSubmit = (values: FormProps, actions: any) => {
+  componentDidUpdate(previousProps: SignupStateProps) {
+    //console.log('Organisations: ', this.props.organisationsRef)
+    /*if(this.props.info.summary != "" &&  previousProps.info.summary != this.props.info.summary) {
+      this.state.submitFunc(false)
+      this.state.resetFunc()
+  }*/
+  }
+
+  handleSubmit = (values: FormProps) => {
+      console.log('here')
+    //this.setState({submitFunc: submit, resetFunc: reset})
     const signupInfo: SignupProps = {
         email: values.email,
         password: values.pass1
     }
+    console.log('hereDAsd?')
     this.props.handleSubmit(signupInfo)
+    console.log('here?')
   }
 
   render() {
@@ -87,7 +113,7 @@ class SignupForm extends React.Component<Props> {
           enableReinitialize={true}
           validationSchema={signupSchema}
           onSubmit={(values: FormProps, actions: any) => {
-            this.handleSubmit(values, actions.resetForm)
+            this.handleSubmit(values)
           }}
         >
           {(formProps: FormikProps<FormProps>) => (
@@ -138,13 +164,19 @@ class SignupForm extends React.Component<Props> {
   }
 }
 
+const mapStateToProps = (state: ApplicationState): SignupStateProps => {
+  return {
+    info: state.forms.data as TxData
+  }
+}
+
 const mapDispatchToProps = (dispatch: AppDispatch): SignupDispatchProps => {
   return {
     handleSubmit: (values: SignupProps) => dispatch(signup(values))
   }
 }
 
-export const Signup = connect<null, SignupDispatchProps, {}, ApplicationState>(
-  null,
+export const Signup = connect<SignupStateProps, SignupDispatchProps, {}, ApplicationState>(
+  mapStateToProps,
   mapDispatchToProps
 )(SignupForm)
