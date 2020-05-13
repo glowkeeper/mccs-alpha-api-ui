@@ -79,23 +79,20 @@ class SignupForm extends React.Component<Props, FormState> {
   }
 
   componentDidUpdate(previousProps: SignupStateProps) {
-    //console.log('Organisations: ', this.props.organisationsRef)
-    /*if(this.props.info.summary != "" &&  previousProps.info.summary != this.props.info.summary) {
+    if(this.props.info.summary != "" &&  previousProps.info.summary != this.props.info.summary) {
       this.state.submitFunc(false)
       this.state.resetFunc()
-  }*/
+    }
   }
 
-  handleSubmit = (values: FormProps) => {
-      console.log('here')
-    //this.setState({submitFunc: submit, resetFunc: reset})
+  handleSubmit = (values: FormProps, submit: (submitting: false) => Function, reset: () => Function) => {
+
+    this.setState({submitFunc: submit, resetFunc: reset})
     const signupInfo: SignupProps = {
         email: values.email,
         password: values.pass1
     }
-    console.log('hereDAsd?')
     this.props.handleSubmit(signupInfo)
-    console.log('here?')
   }
 
   render() {
@@ -113,7 +110,7 @@ class SignupForm extends React.Component<Props, FormState> {
           enableReinitialize={true}
           validationSchema={signupSchema}
           onSubmit={(values: FormProps, actions: any) => {
-            this.handleSubmit(values)
+            this.handleSubmit(values, actions.setSubmitting, actions.resetForm)
           }}
         >
           {(formProps: FormikProps<FormProps>) => (
