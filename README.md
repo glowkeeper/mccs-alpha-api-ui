@@ -27,9 +27,11 @@ Follow the [Install](#install) instructions.
 
 - [node](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/)
-- [React](https://reactjs.org/) + [Redux](https://redux.js.org/) + [TypeScript](https://www.typescriptlang.org/) (Note to Geoff - don't panic - this isn't set in stone ;) )
+- [React](https://reactjs.org/) + [Redux](https://redux.js.org/) + [TypeScript](https://www.typescriptlang.org/) (Note to Geoff - sorry)
 
 ## Install
+
+Get the node packages:
 
 1. In the [/app](/app) directory, type `npm install`. That should install everything listed in [package.json](/app/package.json), which form the components of the REACT-based web frontend to this application.
 
@@ -38,7 +40,7 @@ Now create the web application:
 1. Build the REACT frontend by typing `npm run compile` (you can also watch for any changes by running `npm run watch`). For a production build, type `npm run prod`.
 2. Startup an instance of [http-server](https://www.npmjs.com/package/http-server) by typing `npm run start`.
 
-Finally, load the web application:
+Finally, run the web application:
 
 1. Load a browser and go to the address [http://http://127.0.0.1:8080](http://http://127.0.0.1:8080).
 
