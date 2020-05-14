@@ -17,8 +17,6 @@ export const getInfo = (details: UserProps) => {
       let d = new Date(Date.now())
       let dateText = d.toString()
 
-      console.log("Token", details.jwt)
-
       const url = `${Remote.insecure}${Remote.server}${Remote.user}`
       fetch(url, {
         method: 'GET',
@@ -32,7 +30,6 @@ export const getInfo = (details: UserProps) => {
             statusText = response.statusText
             return response.json()
             .then(data => {
-                console.log("data: ", data)
                 const txData = {
                     code: status,
                     summary: `${Account.errorUser}: ${statusText} at ${dateText}`,
@@ -45,7 +42,6 @@ export const getInfo = (details: UserProps) => {
         return response.json()
       })
       .then(data => {
-          console.log("data: ", data)
           const userData = {
               email: details.email,
               jwt: details.jwt,

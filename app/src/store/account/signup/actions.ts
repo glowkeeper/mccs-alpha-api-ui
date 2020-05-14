@@ -31,7 +31,6 @@ export const signup = (details: SignupProps) => {
             statusText = response.statusText
             return response.json()
             .then(data => {
-                console.log("data: ", data)
                 const txData = {
                     code: status,
                     summary: `${Account.errorSignup}: ${statusText} at ${dateText}`,
@@ -44,7 +43,6 @@ export const signup = (details: SignupProps) => {
         return response.json()
       })
       .then(data => {
-          console.log("user data: ", data)
           const userData = {
             email: details.email,
             jwt: data.data.token,

@@ -2,6 +2,8 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import Markdown from 'react-markdown'
 
+import Grid from '@material-ui/core/Grid'
+
 import { ApplicationState } from '../../../store/types'
 
 import { InfoProps, InfoTypes } from '../../../store/info/types'
@@ -17,10 +19,19 @@ class AppInfo extends React.Component<Props> {
   render() {
 
     return (
-      <div>
-        <h2>{this.props.title}</h2>
-        <Markdown escapeHtml={false} source={this.props.data} />
-      </div>
+
+        <Grid container>
+            <Grid item xs={12} sm={3}>
+                &nbsp;
+            </Grid>
+            <Grid item xs={12} sm={6}>
+                <h2>{this.props.title}</h2>
+                <Markdown escapeHtml={false} source={this.props.data} />
+            </Grid>
+            <Grid item xs={12} sm={3}>
+                &nbsp;
+            </Grid>
+        </Grid>
     )
   }
 }

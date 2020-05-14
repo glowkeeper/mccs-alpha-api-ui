@@ -5,8 +5,8 @@ export const getDictEntries = (props: PayloadProps): string => {
   let xs: string = ``
   const flatObject: any = flatten(props)
   Object.keys(flatObject).forEach((key: string) => {
+
     const newKey = key.match(/[a-z]+$/i)
-    //console.log(key, newKey, flatObject[key])
     xs += `**${newKey}**: `
     switch (typeof flatObject[key]) {
       case 'number': {
@@ -28,8 +28,8 @@ export const getDictEntries = (props: PayloadProps): string => {
         return xs += ``
       }
       default:
-        console.log("Error!")
-        break
+        console.log("getDictEntries Error!")
+        return xs += ``
     }
 
   })

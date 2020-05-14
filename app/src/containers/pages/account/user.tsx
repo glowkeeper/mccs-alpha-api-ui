@@ -29,19 +29,17 @@ class UserInfo extends React.Component<Props> {
       super(props)
     }
 
-    componentDidUpdate(previousProps: UserStateProps) {
+    /*componentDidUpdate(previousProps: UserStateProps) {
       const thisData: UserProps = this.props.info.data as UserProps
       const previousData: UserProps = previousProps.info.data as UserProps
       if(thisData.jwt != "" && thisData.jwt != previousData.jwt) {
-          console.log("this.data: ", thisData)
         this.props.getInfo(thisData)
       }
-    }
+  }*/
 
     componentDidMount() {
         const thisData: UserProps = this.props.info.data as UserProps
         if(thisData.jwt != ""  && typeof thisData.jwt !== 'undefined') {
-          console.log("this.data: ", thisData)
           this.props.getInfo(thisData)
         }
     }
@@ -51,7 +49,6 @@ class UserInfo extends React.Component<Props> {
         let xs = ""
         const data: UserProps = this.props.info.data as UserProps
         if(Object.entries(data.info).length != 0) {
-            console.log("dict", data)
             xs += getDictEntries(data.info as PayloadProps)
         }
 
@@ -75,7 +72,6 @@ class UserInfo extends React.Component<Props> {
 }
 
 const mapStateToProps = (state: ApplicationState): UserStateProps => {
-    //console.log(state.orgReader)
     return {
       info: state.user as PayloadProps
     }
