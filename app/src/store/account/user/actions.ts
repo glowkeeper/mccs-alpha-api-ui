@@ -12,9 +12,7 @@ import { history } from '../../../utils/history'
 export const getInfo = (details: UserProps) => {
   return async (dispatch: AppDispatch) => {
 
-      let status = 200
-      let statusText = "Success"
-      let d = new Date(Date.now())
+     let d = new Date(Date.now())
       let dateText = d.toString()
       let txData = {
           code: 404,
@@ -31,8 +29,8 @@ export const getInfo = (details: UserProps) => {
       })
       .then(response => {
         if (!response.ok) {
-            status = response.status
-            statusText = response.statusText
+            const status = response.status
+            const statusText = response.statusText
             return response.json()
             .then(data => {
                 const txData = {

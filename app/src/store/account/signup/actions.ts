@@ -12,8 +12,6 @@ import { history } from '../../../utils/history'
 export const signup = (details: SignupProps) => {
   return async (dispatch: AppDispatch) => {
 
-      let status = 200
-      let statusText = "Success"
       let d = new Date(Date.now())
       let dateText = d.toString()
       let txData = {
@@ -32,8 +30,8 @@ export const signup = (details: SignupProps) => {
       })
       .then(response => {
         if (!response.ok) {
-            status = response.status
-            statusText = response.statusText
+            const status = response.status
+            const statusText = response.statusText
             return response.json()
             .then(data => {
                 txData = {
