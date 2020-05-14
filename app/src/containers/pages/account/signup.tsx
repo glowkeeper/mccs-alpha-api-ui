@@ -14,6 +14,10 @@ import { ActionProps, AppDispatch } from '../../../store/types'
 import { SignupProps } from '../../../store/account/types'
 import { TxData } from '../../../store/helpers/forms/types'
 
+import {
+  RightCircleOutlined
+} from '@ant-design/icons'
+
 import SendIcon from '@material-ui/icons/Send'
 
 import { signup } from '../../../store/account/signup/actions'
@@ -119,26 +123,21 @@ class SignupForm extends React.Component<Props, FormFuncs> {
                     label={Account.email}
                     component={TextField}
                   />
-                  {formProps.touched.email && formProps.errors.email ? <span>{formProps.errors.email}</span> : null}
                   <Field
                     id ='pass1'
                     name="pass1"
                     label={Account.password}
                     component={TextField}
                   />
-                  {formProps.touched.pass1 && formProps.errors.pass1 ? <span>{formProps.errors.pass1}</span> : null}
                   <Field
+                    id ='pass2'
                     name="pass2"
                     label={Account.repeatPassword}
                     component={TextField}
                   />
-                  {formProps.touched.pass2 && formProps.errors.pass2 ? <span>{formProps.errors.pass2}</span> : null}
-                <br />
-                    &nbsp; {formProps.isSubmitting && <LinearProgress />}
-                <br />
                   <Grid container>
                       <Grid item xs={12} sm={3}>
-                          <SignupButton type='submit' variant="contained" color="primary" disabled={formProps.isSubmitting} endIcon={<SendIcon/>}>
+                          <SignupButton type='submit' variant="contained" color="primary" endIcon={<RightCircleOutlined spin={formProps.isSubmitting}/>}>
                             {Account.signupButton}
                           </SignupButton>
                       </Grid>

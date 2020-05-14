@@ -97,9 +97,9 @@ class Account {
   static readonly signupSuccess = 'Signup Successful'
   static readonly signupFail = 'Signup Failed'
 
-  static readonly errorEmailValid = "Valid email (e.g. name@address.com)"
-  static readonly errorPassTooShort = "Password must contain at least 8 characters"
-  static readonly errorPassNotMatch = "Passwords do not match"
+  static readonly errorEmailValid = "Please enter a valid email (e.g. name@address.com)"
+  static readonly errorPassTooShort = "Please enter a password that contains at least 8 characters"
+  static readonly errorPassNotMatch = "Please ensure your passwords match"
 }
 
 export { App,
