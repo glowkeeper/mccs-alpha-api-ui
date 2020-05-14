@@ -13,6 +13,11 @@ import { history } from '../../../utils/history'
 export const signup = (details: SignupProps) => {
   return async (dispatch: AppDispatch) => {
 
+      let status = 200
+      let statusText = "Success"
+      let d = new Date(Date.now())
+      let dateText = d.toString()
+
     let actionType = FormActionTypes.FORM_FAILURE
       const url = `${Remote.insecure}${Remote.server}${Remote.signup}`
       fetch(url, {
@@ -24,25 +29,35 @@ export const signup = (details: SignupProps) => {
       })
       .then(response => {
         if (!response.ok) {
-          throw new Error(response.statusText)
+            status = response.status
+            statusText = response.statusText
+            return response.json()
+            .then(data => {
+                console.log("data: ", data)
+                const txData = {
+                    code: status,
+                    summary: `${Account.signupFail}: ${statusText} at ${dateText}`,
+                    info: data
+                }
+                dispatch(write({data: txData})(actionType))
+                throw new Error(statusText)
+            })
         }
-        console.log("result: ", response)
         return response.json()
       })
       .then(data => {
           console.log("data: ", data)
           const txData = {
-            summary: `${Account.signupSuccess}`,
+              code: status,
+              summary: `${Account.signupSuccess}: ${statusText} at ${dateText}`,
+              info: data
           }
           actionType = FormActionTypes.FORM_SUCCESS
           history.push(`${Paths.home}`)
           dispatch(write({data: {data: txData}})(actionType))
       })
      .catch(error => {
-          const txData = {
-              summary: `${Account.signupFail}: ${error.message}`
-          }
-          dispatch(write({data: txData})(actionType))
+          console.log(`${Account.signupFail}: ${error.message} at ${dateText}`)
      })
   }
 }

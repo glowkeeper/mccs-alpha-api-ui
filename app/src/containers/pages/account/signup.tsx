@@ -67,7 +67,7 @@ class SignupForm extends React.Component<Props, FormFuncs> {
         pass1: "",
         pass2: "",
         url: "",
-        info: { summary: ""},
+        info: { code: 0, summary: "", info: {}},
         handleSubmit: (values: SignupProps) => {}
     }
 

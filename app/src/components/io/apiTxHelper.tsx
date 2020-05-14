@@ -1,15 +1,17 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
+import { flatten } from 'flat'
 import Markdown from 'react-markdown'
 
 import { ApplicationState } from '../../store'
-import { ActionProps, AppDispatch } from '../../store/types'
+import { ActionProps, AppDispatch, PayloadProps } from '../../store/types'
 import { TxData } from '../../store/helpers/forms/types'
 import { initialise } from '../../store/helpers/forms/actions'
+import { getDictEntries } from '../../utils/dict'
 
 interface TxStateProps {
-  info: TxData
+  info: PayloadProps
 }
 
 interface TxDispatchProps {
@@ -30,7 +32,11 @@ class Tx extends React.Component<Props> {
 
   render() {
 
-    const xs =  this.props.info.summary
+    let xs = ""
+    const data: TxData = this.props.info.data as TxData
+    if (data.code != 0) {
+        xs = getDictEntries(this.props.info)
+    }
 
     return (
       <React.Fragment>
@@ -43,7 +49,7 @@ class Tx extends React.Component<Props> {
 
 const mapStateToProps = (state: ApplicationState): TxStateProps => {
   return {
-    info: state.forms.data as TxData
+    info: state.forms as PayloadProps
   }
 }
 
