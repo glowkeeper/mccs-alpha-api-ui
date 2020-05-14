@@ -23,61 +23,66 @@ class Paths {
   static readonly signup = 'signup'
 }
 
+class GeneralError {
+
+    static readonly errorRequired = "Required"
+}
+
 class Home {
 
-  static heading = 'Home'
+  static readonly heading = 'Home'
 
-  static info = `Every new website should start with \"Hello World!\"`
+  static readonly info = `Every new website should start with \"Hello World!\"`
 }
 
 class About {
 
-  static heading = 'About MCCS'
+  static readonly heading = 'About MCCS'
 
-  static info = `**MCCS UI** version 0.0.1.<br /><br />Created by _${App.author}_`
+  static readonly info = `**MCCS UI** version 0.0.1.<br /><br />Created by _${App.author}_`
 
 }
 
 class Help {
 
-  static heading = 'MCCS Help'
+  static readonly heading = 'MCCS Help'
 
-  static info = `I need some too`
+  static readonly info = `I need some too`
 }
 
 class Faq {
 
-  static heading = 'FAQ'
+  static readonly heading = 'FAQ'
 
-  static info = `Coming soon`
+  static readonly info = `Coming soon`
 }
 
 class Directory {
 
-  static heading = 'MCCS Directory'
+  static readonly heading = 'MCCS Directory'
 
-  static info = `Coming soon`
+  static readonly info = `Coming soon`
 }
 
 class Blog {
 
-  static heading = 'Blog'
+  static readonly heading = 'Blog'
 
-  static info = `Some really interesting content will appear here soon`
+  static readonly info = `Some really interesting content will appear here soon`
 }
 
 class Contact {
 
-  static heading = 'Contact'
+  static readonly heading = 'Contact'
 
-  static info = `a dot person at ocn dot com`
+  static readonly info = `a dot person at ocn dot com`
 }
 
 class Members {
 
-  static heading = 'Login'
+  static readonly heading = 'Login'
 
-  static info = `Login form appearing here next`
+  static readonly info = `Login form appearing here next`
 }
 
 class Account {
@@ -92,12 +97,14 @@ class Account {
   static readonly signupSuccess = 'Signup Successful'
   static readonly signupFail = 'Signup Failed'
 
-  static readonly ErrorPassTooShort = "Password must contain at least 8 characters"
-  static readonly ErrorPassNotMatch = "Passwords do not match"
+  static readonly errorEmailValid = "Valid email (e.g. name@address.com)"
+  static readonly errorPassTooShort = "Password must contain at least 8 characters"
+  static readonly errorPassNotMatch = "Passwords do not match"
 }
 
 export { App,
          Paths,
+         GeneralError,
          Home,
          About,
          Help,
