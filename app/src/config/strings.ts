@@ -21,6 +21,7 @@ class Paths {
   static readonly contact = 'Contact'
 
   static readonly signup = 'signup'
+  static readonly user = 'user'
 }
 
 class GeneralError {
@@ -94,9 +95,12 @@ class Account {
   static readonly password ='Password'
   static readonly repeatPassword = 'Reconfirm Password'
   static readonly signupButton = 'Create'
-  static readonly signupSuccess = 'Signup Successful'
-  static readonly signupFail = 'Signup Failed'
 
+  static readonly successSignup = 'Signup Successful'
+  static readonly successUser = 'User Successful'
+
+  static readonly errorUser = 'Couldn\'t get user details'
+  static readonly errorSignup = 'Signup Failed'
   static readonly errorEmailValid = "Please enter a valid email (e.g. name@address.com)"
   static readonly errorPassTooShort = "Please enter a password that contains at least 8 characters"
   static readonly errorPassNotMatch = "Please ensure your passwords match"

@@ -11,6 +11,7 @@ import { Paths as PathConfig } from '../config/paths'
 import logo from '../images/logo.png'
 
 import { Signup } from '../containers/pages/account/signup'
+import { User } from '../components/pages/account/user'
 
 class Content extends React.Component {
 
@@ -31,6 +32,12 @@ class Content extends React.Component {
           name={Paths.signup}
           path={PathConfig.signup}
           render={() => <Signup/>}
+        />
+
+        <Route
+          name={Paths.user}
+          path={PathConfig.user}
+          render={() => <User/>}
         />
 
       </Switch>

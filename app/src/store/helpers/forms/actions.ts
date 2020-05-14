@@ -1,5 +1,4 @@
-import { ApplicationState } from '../../store'
-import { ActionProps, PayloadProps, AppDispatch } from '../../types'
+import { ApplicationState, ActionProps, PayloadProps, AppDispatch } from '../../types'
 import { write } from '../../actions'
 
 import { FormActionTypes, TxData } from './types'

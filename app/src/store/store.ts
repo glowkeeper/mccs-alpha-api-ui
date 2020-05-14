@@ -4,21 +4,16 @@ import { combineReducers, Reducer, Store, createStore, applyMiddleware } from 'r
 //import ReduxThunk, { ThunkAction } from 'redux-thunk'
 import ReduxThunk from 'redux-thunk'
 
-import { ActionProps } from './types'
-import { FormProps } from './helpers/forms/types'
-import { InfoPageProps } from './info/types'
+import { ApplicationState, ActionProps } from './types'
 
 import { reducer as formReducer } from './helpers/forms/reducer'
 import { reducer as infoReducer } from './info/reducer'
-
-export interface ApplicationState {
-  info: InfoPageProps
-  forms: FormProps
-}
+import { reducer as userReducer } from './account/reducer'
 
 export const rootReducer: Reducer<ApplicationState, ActionProps> = combineReducers<ApplicationState, ActionProps>({
   info: infoReducer,
-  forms: formReducer
+  forms: formReducer,
+  user: userReducer
 })
 
 export function configureStore(

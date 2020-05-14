@@ -1,15 +1,15 @@
 import { ApplicationState, ActionProps, AppDispatch } from '../../types'
-import { SignupProps, AccountActionTypes } from '../types'
-import { FormActionTypes, TxData } from '../../helpers/forms/types'
-import { UserProps } from '../types'
 
 import { write } from '../../actions'
+
+import { UserProps, AccountActionTypes } from '../types'
+import { FormActionTypes, TxData } from '../../helpers/forms/types'
 
 import { Account } from '../../../config/strings'
 import { Remote, Paths } from '../../../config/paths'
 import { history } from '../../../utils/history'
 
-export const signup = (details: SignupProps) => {
+export const getInfo = (details: UserProps) => {
   return async (dispatch: AppDispatch) => {
 
       let status = 200
@@ -17,13 +17,12 @@ export const signup = (details: SignupProps) => {
       let d = new Date(Date.now())
       let dateText = d.toString()
 
-      const url = `${Remote.insecure}${Remote.server}${Remote.signup}`
+      const url = `${Remote.insecure}${Remote.server}${Remote.user}`
       fetch(url, {
-        method: 'POST',
+        method: 'GET',
         headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(details)
+            Authorization: `Bearer ${details.jwt}`
+        }
       })
       .then(response => {
         if (!response.ok) {
@@ -34,7 +33,7 @@ export const signup = (details: SignupProps) => {
                 console.log("data: ", data)
                 const txData = {
                     code: status,
-                    summary: `${Account.errorSignup}: ${statusText} at ${dateText}`,
+                    summary: `${Account.errorUser}: ${statusText} at ${dateText}`,
                     info: data
                 }
                 dispatch(write({data: txData})(FormActionTypes.FORM_FAILURE))
@@ -44,17 +43,17 @@ export const signup = (details: SignupProps) => {
         return response.json()
       })
       .then(data => {
-          history.push(`${Paths.user}`)
           console.log("data: ", data)
           const userData = {
-            email: details.email,
-            jwt: data.token,
+            email: "",
+            jwt: "",
             info: {}
           }
-          dispatch(write({data: userData})(AccountActionTypes.ACCOUNT_INIT))
+          dispatch(write({data: userData})(AccountActionTypes.ACCOUNT_SUCCESS))
+
       })
      .catch(error => {
-          console.log(`${Account.errorSignup}: ${error.message} at ${dateText}`)
+          console.log(`${Account.errorUser}: ${error.message} at ${dateText}`)
      })
   }
 }

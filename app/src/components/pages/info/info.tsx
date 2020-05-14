@@ -2,7 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import Markdown from 'react-markdown'
 
-import { ApplicationState } from '../../../store'
+import { ApplicationState } from '../../../store/types'
 
 import { InfoProps, InfoTypes } from '../../../store/info/types'
 
@@ -10,9 +10,9 @@ interface StateProps {
   type: InfoTypes
 }
 
-type AllProps = InfoProps & StateProps
+type Props = InfoProps & StateProps
 
-class AppInfo extends React.Component<AllProps> {
+class AppInfo extends React.Component<Props> {
 
   render() {
 

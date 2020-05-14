@@ -9,8 +9,7 @@ import { LinearProgress } from '@material-ui/core'
 import { FormControl } from '@material-ui/core';
 import { TextField } from "material-ui-formik-components"
 
-import { ApplicationState } from '../../../store'
-import { ActionProps, AppDispatch } from '../../../store/types'
+import { ApplicationState, AppDispatch } from '../../../store/types'
 import { SignupProps } from '../../../store/account/types'
 import { TxData } from '../../../store/helpers/forms/types'
 
