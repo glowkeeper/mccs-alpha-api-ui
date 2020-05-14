@@ -21,7 +21,7 @@ Coming soon.
 
 ## Demo
 
-Coming soon...
+Follow the [Install](#install) instructions.
 
 ## Built Using
 
@@ -35,18 +35,16 @@ Coming soon...
 
 Now create the web application:
 
-1. Build the REACT frontend by typing `npm run compile` (you can also watch for any changes by running `npm run watch`).
+1. Build the REACT frontend by typing `npm run compile` (you can also watch for any changes by running `npm run watch`). For a production build, type `npm run prod`.
 2. Startup an instance of [http-server](https://www.npmjs.com/package/http-server) by typing `npm run start`.
 
-More coming soon...
+Finally, load the web application:
+
+1. Load a browser and go to the address [http://http://127.0.0.1:8080](http://http://127.0.0.1:8080).
 
 ### Dependencies
 
-After cloning this repository, download and ensure all dependencies are installed:
-
-- [node](https://nodejs.org/en/)
-- [npm](https://www.npmjs.com/)
-- [http-server](https://www.npmjs.com/package/http-server)
+Clone this repository, and ensure [node](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) are installed.
 
 ## Maintainer
 
