@@ -16,6 +16,11 @@ export const signup = (details: SignupProps) => {
       let statusText = "Success"
       let d = new Date(Date.now())
       let dateText = d.toString()
+      let txData = {
+          code: 404,
+          summary: `${Account.errorSignup}: Failed to fetch at ${dateText}`,
+          info: {}
+      }
 
       const url = `${Remote.insecure}${Remote.server}${Remote.signup}`
       fetch(url, {
@@ -31,12 +36,11 @@ export const signup = (details: SignupProps) => {
             statusText = response.statusText
             return response.json()
             .then(data => {
-                const txData = {
+                txData = {
                     code: status,
                     summary: `${Account.errorSignup}: ${statusText} at ${dateText}`,
                     info: data
                 }
-                dispatch(write({data: txData})(FormActionTypes.FORM_FAILURE))
                 throw new Error(statusText)
             })
         }
@@ -52,7 +56,8 @@ export const signup = (details: SignupProps) => {
           history.push(`${Paths.user}`)
       })
      .catch(error => {
-          console.log(`${Account.errorSignup}: ${error.message} at ${dateText}`)
+         console.log(`${Account.errorSignup}: ${error.message} at ${dateText}`)
+         dispatch(write({data: txData})(FormActionTypes.FORM_FAILURE))
      })
   }
 }

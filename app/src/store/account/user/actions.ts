@@ -16,6 +16,11 @@ export const getInfo = (details: UserProps) => {
       let statusText = "Success"
       let d = new Date(Date.now())
       let dateText = d.toString()
+      let txData = {
+          code: 404,
+          summary: `${Account.errorUser}: Failed to fetch at ${dateText}`,
+          info: {}
+      }
 
       const url = `${Remote.insecure}${Remote.server}${Remote.user}`
       fetch(url, {
@@ -35,7 +40,6 @@ export const getInfo = (details: UserProps) => {
                     summary: `${Account.errorUser}: ${statusText} at ${dateText}`,
                     info: data
                 }
-                dispatch(write({data: txData})(FormActionTypes.FORM_FAILURE))
                 throw new Error(statusText)
             })
         }
@@ -52,6 +56,7 @@ export const getInfo = (details: UserProps) => {
       })
      .catch(error => {
           console.log(`${Account.errorUser}: ${error.message} at ${dateText}`)
+          dispatch(write({data: txData})(FormActionTypes.FORM_FAILURE))
      })
   }
 }
