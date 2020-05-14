@@ -29,14 +29,31 @@ class UserInfo extends React.Component<Props> {
       super(props)
     }
 
+    componentDidUpdate(previousProps: UserStateProps) {
+      const thisData: UserProps = this.props.info.data as UserProps
+      const previousData: UserProps = previousProps.info.data as UserProps
+      if(thisData.jwt != "" && thisData.jwt != previousData.jwt) {
+          console.log("this.data: ", thisData)
+        this.props.getInfo(thisData)
+      }
+    }
+
     componentDidMount() {
-      const data: UserProps = this.props.info.data as UserProps
-      this.props.getInfo(data)
+        const thisData: UserProps = this.props.info.data as UserProps
+        if(thisData.jwt != ""  && typeof thisData.jwt !== 'undefined') {
+          console.log("this.data: ", thisData)
+          this.props.getInfo(thisData)
+        }
     }
 
     render() {
 
-        const xs = getDictEntries(this.props.info)
+        let xs = ""
+        const data: UserProps = this.props.info.data as UserProps
+        if(Object.entries(data.info).length != 0) {
+            console.log("dict", data)
+            xs += getDictEntries(data.info as PayloadProps)
+        }
 
         return (
 

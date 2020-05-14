@@ -17,6 +17,8 @@ export const getInfo = (details: UserProps) => {
       let d = new Date(Date.now())
       let dateText = d.toString()
 
+      console.log("Token", details.jwt)
+
       const url = `${Remote.insecure}${Remote.server}${Remote.user}`
       fetch(url, {
         method: 'GET',
@@ -45,9 +47,9 @@ export const getInfo = (details: UserProps) => {
       .then(data => {
           console.log("data: ", data)
           const userData = {
-            email: "",
-            jwt: "",
-            info: {}
+              email: details.email,
+              jwt: details.jwt,
+              info: data.data
           }
           dispatch(write({data: userData})(AccountActionTypes.ACCOUNT_SUCCESS))
 

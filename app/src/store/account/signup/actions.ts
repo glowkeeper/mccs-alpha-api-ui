@@ -44,14 +44,14 @@ export const signup = (details: SignupProps) => {
         return response.json()
       })
       .then(data => {
-          history.push(`${Paths.user}`)
-          console.log("data: ", data)
+          console.log("user data: ", data)
           const userData = {
             email: details.email,
-            jwt: data.token,
+            jwt: data.data.token,
             info: {}
           }
           dispatch(write({data: userData})(AccountActionTypes.ACCOUNT_INIT))
+          history.push(`${Paths.user}`)
       })
      .catch(error => {
           console.log(`${Account.errorSignup}: ${error.message} at ${dateText}`)

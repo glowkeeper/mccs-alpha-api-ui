@@ -11,7 +11,7 @@ import { Paths as PathConfig } from '../config/paths'
 import logo from '../images/logo.png'
 
 import { Signup } from '../containers/pages/account/signup'
-import { User } from '../components/pages/account/user'
+import { User } from '../containers/pages/account/user'
 
 class Content extends React.Component {
 
