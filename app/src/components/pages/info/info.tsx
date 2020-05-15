@@ -14,9 +14,7 @@ interface StateProps {
 
 type Props = InfoProps & StateProps
 
-class AppInfo extends React.Component<Props> {
-
-  render() {
+const appInfo = (props: Props) => {
 
     return (
 
@@ -25,15 +23,14 @@ class AppInfo extends React.Component<Props> {
                 &nbsp;
             </Grid>
             <Grid item xs={12} sm={6}>
-                <h2>{this.props.title}</h2>
-                <Markdown escapeHtml={false} source={this.props.data} />
+                <h2>{props.title}</h2>
+                <Markdown escapeHtml={false} source={props.data} />
             </Grid>
             <Grid item xs={12} sm={3}>
                 &nbsp;
             </Grid>
         </Grid>
     )
-  }
 }
 
 const mapStateToProps = (state: ApplicationState, ownProps: StateProps): InfoProps => {
@@ -61,4 +58,4 @@ const mapStateToProps = (state: ApplicationState, ownProps: StateProps): InfoPro
 
 export const Info = connect<InfoProps, {}, StateProps, ApplicationState>(
   mapStateToProps
-)(AppInfo)
+)(appInfo)
