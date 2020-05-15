@@ -117,21 +117,21 @@ class SignupForm extends React.Component<Props, FormFuncs> {
                   <Field
                     type='email'
                     name='email'
+                    component={TextField}
                     placeholder={Account.email}
                   />
-                  <ErrorMessage name="email" component="span" />
                   <Field
                     type='password'
                     name="pass1"
+                    component={TextField}
                     placeholder={Account.password}
                   />
-                  <ErrorMessage name="pass1" component="span" />
                   <Field
                     type='password'
                     name="pass2"
+                    component={TextField}
                     placeholder={Account.repeatPassword}
                   />
-                  <ErrorMessage name="pass2" component="span" />
                   <Grid container>
                       <Grid item xs={12} sm={3}>
                           <SignupButton type='submit' variant="contained" color="primary" endIcon={<RightCircleOutlined spin={formProps.isSubmitting}/>}>
