@@ -9,7 +9,7 @@ This will be a UI for [MCCS Alpha API](https://github.com/ic3network/mccs-alpha-
 
 - [Usage](#usage)
     - [Local machine](#use-a-local-build)
-    - [live development build](#use-the-live-development-build)
+    - [Live development build](#use-the-live-development-build)
 - [Built Using](#built-using)  
 - [Install](#install)
 - [Maintainer](#maintainer)
