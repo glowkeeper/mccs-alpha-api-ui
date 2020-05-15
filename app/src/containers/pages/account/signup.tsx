@@ -115,23 +115,23 @@ class SignupForm extends React.Component<Props, FormFuncs> {
             <Form>
               <FormControl fullWidth={true}>
                   <Field
-                    id ='email'
+                    type='email'
                     name='email'
-                    label={Account.email}
-                    component={TextField}
+                    placeholder={Account.email}
                   />
+                  <ErrorMessage name="email" component="span" />
                   <Field
-                    id ='pass1'
+                    type='password'
                     name="pass1"
-                    label={Account.password}
-                    component={TextField}
+                    placeholder={Account.password}
                   />
+                  <ErrorMessage name="pass1" component="span" />
                   <Field
-                    id ='pass2'
+                    type='password'
                     name="pass2"
-                    label={Account.repeatPassword}
-                    component={TextField}
+                    placeholder={Account.repeatPassword}
                   />
+                  <ErrorMessage name="pass2" component="span" />
                   <Grid container>
                       <Grid item xs={12} sm={3}>
                           <SignupButton type='submit' variant="contained" color="primary" endIcon={<RightCircleOutlined spin={formProps.isSubmitting}/>}>
