@@ -13,9 +13,7 @@ import { ApplicationState, AppDispatch } from '../../../store/types'
 import { SignupProps } from '../../../store/account/types'
 import { TxData } from '../../../store/helpers/forms/types'
 
-import {
-  RightCircleOutlined
-} from '@ant-design/icons'
+import RightCircleOutlined from '@ant-design/icons/lib/icons/RightCircleOutlined'
 
 import SendIcon from '@material-ui/icons/Send'
 

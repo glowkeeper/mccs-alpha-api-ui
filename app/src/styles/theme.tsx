@@ -169,8 +169,8 @@ const themeStyles = makeStyles({
     background:  'linear-gradient(#003ea7, #003ea7)'
   },
   button: {
-    padding: 0,
-    margin: 0,
+    padding: theme.spacing(1),
+    margin: theme.spacing(1),
     fontSize: "4rem",
     fontWeight: 400,
     textAlign: 'right',

@@ -11,7 +11,8 @@ import MenuItem from '@material-ui/core/MenuItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 
-import DehazeIcon from '@material-ui/icons/Dehaze'
+import MenuOutlined from '@ant-design/icons/lib/icons/MenuOutlined'
+//import DehazeIcon from '@material-ui/icons/Dehaze'
 import HomeIcon from '@material-ui/icons/Home'
 import InfoIcon from '@material-ui/icons/Info'
 import HelpIcon from '@material-ui/icons/Help'
@@ -61,7 +62,7 @@ export const AppMenu = () => {
           aria-haspopup="true"
           onClick={handleClick}
         >
-          <DehazeIcon className={themeClasses.button}/>
+          <MenuOutlined className={themeClasses.button}/>
         </Button>
         <StyledMenu
             id="customized-menu"
