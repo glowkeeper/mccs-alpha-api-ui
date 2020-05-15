@@ -226,7 +226,7 @@ const SignupButton = withStyles({
     padding: '6px 12px',
     border: '1px solid',
     lineHeight: 1.5,
-    backgroundColor: 'blue',
+    backgroundColor: '#003ea7',
     borderColor: 'indigo',
     fontFamily: [
       '"Helvetica Neue"',
