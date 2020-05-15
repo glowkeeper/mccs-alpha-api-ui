@@ -20,7 +20,7 @@ export const signup = (details: SignupProps) => {
           info: {}
       }
 
-      const url = `${Remote.secure}${Remote.server}${Remote.signup}`
+      //const url = `${Remote.secure}${Remote.server}${Remote.signup}`
       console.log('URL: ', url)
       fetch(url, {
         method: 'POST',
