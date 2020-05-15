@@ -8,7 +8,8 @@ This will be a UI for [MCCS Alpha API](https://github.com/ic3network/mccs-alpha-
 ## Table of Contents
 
 - [Usage](#usage)
-- [Demo](#demo)
+    - [Local machine](#use-a-local-build)
+    - [live development build](#use-the-live-development-build)
 - [Built Using](#built-using)  
 - [Install](#install)
 - [Maintainer](#maintainer)
@@ -17,32 +18,34 @@ This will be a UI for [MCCS Alpha API](https://github.com/ic3network/mccs-alpha-
 
 ## Usage
 
-Coming soon.
+You can run the application on a [local machine](#use-a-local-build), or you can test drive the [live development build](#use-the-live-development-build).
 
-## Demo
+### Use a Local Build
 
-Follow the [Install](#install) instructions.
+First follow the [Install](#install) instructions. Then, from the [/app](/app) directory:
+
+1. Start an instance of [http-server](https://www.npmjs.com/package/http-server) by typing `npm run start`.
+
+Then load the web application:
+
+1. Go to the address [http://http://127.0.0.1:8080](http://http://127.0.0.1:8080) in your browser.
+
+### Use the Live Development Build
+
+A live version of the app' is running at [https://mccs-alpha-api-ui.ic3.dev/](https://mccs-alpha-api-ui.ic3.dev/).
 
 ## Built Using
 
 - [node](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/)
-- [React](https://reactjs.org/) + [Redux](https://redux.js.org/) + [TypeScript](https://www.typescriptlang.org/) (Note to Geoff - sorry)
+- [React](https://reactjs.org/) + [Redux](https://redux.js.org/) + [TypeScript](https://www.typescriptlang.org/)
 
 ## Install
 
-Get the node packages:
+First, install the [dependencies](#dependencies). Then create the web application:
 
 1. In the [/app](/app) directory, type `npm install`. That should install everything listed in [package.json](/app/package.json), which form the components of the REACT-based web frontend to this application.
-
-Now create the web application:
-
-1. Build the REACT frontend by typing `npm run compile` (you can also watch for any changes by running `npm run watch`). For a production build, type `npm run prod`.
-2. Startup an instance of [http-server](https://www.npmjs.com/package/http-server) by typing `npm run start`.
-
-Finally, run the web application:
-
-1. Load a browser and go to the address [http://http://127.0.0.1:8080](http://http://127.0.0.1:8080).
+2. Build the REACT frontend by typing `npm run compile` (you can also watch for any changes by running `npm run watch`). For a production build, type `npm run prod`.
 
 ### Dependencies
 
