@@ -20,7 +20,7 @@ export const getInfo = (details: UserProps) => {
           info: {}
       }
 
-      const url = `${Remote.insecure}${Remote.server}${Remote.user}`
+      const url = `${Remote.secure}${Remote.server}${Remote.user}`
       fetch(url, {
         method: 'GET',
         headers: {
