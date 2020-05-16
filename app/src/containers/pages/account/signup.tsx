@@ -15,6 +15,7 @@ import { TxData } from '../../../store/helpers/forms/types'
 import RightCircleOutlined from '@ant-design/icons/lib/icons/RightCircleOutlined'
 
 import { signup } from '../../../store/account/signup/actions'
+import { initialise } from '../../../store/helpers/forms/actions'
 
 import { Signup as SignupButton } from '../../../components/buttons'
 import { TxHelper } from '../../../components/io/apiTxHelper'
@@ -38,6 +39,7 @@ interface SignupStateProps {
 }
 
 interface SignupDispatchProps {
+  txInit: () => void,
   handleSubmit: (values: SignupProps) => void
 }
 
@@ -72,6 +74,7 @@ const signupInfo = ( props: Props) => {
           validationSchema={signupSchema}
           onSubmit={(values: any) => {
             setSubmit(true)
+            props.txInit()
             const signupInfo: SignupProps = {
                 email: values.email,
                 password: values.pass1
@@ -139,6 +142,7 @@ const mapStateToProps = (state: ApplicationState): SignupStateProps => {
 
 const mapDispatchToProps = (dispatch: AppDispatch): SignupDispatchProps => {
   return {
+    txInit: () => dispatch(initialise()),
     handleSubmit: (values: SignupProps) => dispatch(signup(values))
   }
 }

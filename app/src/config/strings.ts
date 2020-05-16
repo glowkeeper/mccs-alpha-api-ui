@@ -94,7 +94,7 @@ class Account {
   static readonly repeatPassword = 'Reconfirm Password'
   static readonly signupButton = 'Create'
 
-  static readonly successSignup = 'Signup Successful'
+  static readonly successSignup = `Signup Successful - redirecting to ${Account.heading}`
   static readonly successUser = 'User Successful'
 
   static readonly errorUser = 'Couldn\'t get user details'
