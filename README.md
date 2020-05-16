@@ -28,7 +28,7 @@ First follow the [Install](#install) instructions. Then, from the [/app](/app) d
 
 Then load the web application:
 
-1. Go to the address [http://http://127.0.0.1:8080](http://http://127.0.0.1:8080) in your browser.
+1. Go to the address [http://127.0.0.1:8080](http://127.0.0.1:8080) in your browser.
 
 ### Use the Live Development Build
 
