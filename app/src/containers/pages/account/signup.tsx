@@ -33,12 +33,6 @@ const signupSchema = Yup.object().shape({
     .required(`${GeneralError.errorRequired}`)
 })
 
-interface FormProps {
-  email: string
-  pass1: string
-  pass2: string
-}
-
 interface SignupStateProps {
   info: TxData
 }
@@ -47,20 +41,18 @@ interface SignupDispatchProps {
   handleSubmit: (values: SignupProps) => void
 }
 
-type Props = FormProps & SignupStateProps & SignupDispatchProps
+type Props = SignupStateProps & SignupDispatchProps
 
 const signupInfo = ( props: Props) => {
 
+    const [formData, setFormData] = useState({ email: "", pass1: "", pass2: ""})
     const [isSubmitting, setSubmit] = useState(false)
     const [summary, setSummary] = useState("")
 
     useEffect(() => {
 
         const txSummary: string = props.info.summary
-        //console.log(txSummary)
-
         if( txSummary != summary ) {
-            console.log("blimey: ", txSummary)
             setSubmit(false)
             setSummary(txSummary)
         }
@@ -75,10 +67,10 @@ const signupInfo = ( props: Props) => {
         <Grid item xs={12} sm={6}>
         <h2>{Account.signupHeading}</h2>
         <Formik
-          initialValues={ {email: "", pass1: "", pass2: ""} }
+          initialValues={ {email: formData.email, pass1: formData.pass1, pass2: formData.pass2} }
           enableReinitialize={true}
           validationSchema={signupSchema}
-          onSubmit={(values: FormProps) => {
+          onSubmit={(values: any) => {
             setSubmit(true)
             const signupInfo: SignupProps = {
                 email: values.email,
@@ -87,7 +79,7 @@ const signupInfo = ( props: Props) => {
             props.handleSubmit(signupInfo)
           }}
         >
-          {(formProps: FormikProps<FormProps>) => (
+          {(formProps: FormikProps<any>) => (
             <Form>
               <FormControl fullWidth={true}>
                   <Field
