@@ -5,9 +5,9 @@ import Grid from '@material-ui/core/Grid'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 
+import { withStyles } from '@material-ui/core/styles'
+
 import Button from '@material-ui/core/Button'
-import Menu from '@material-ui/core/Menu'
-import MenuItem from '@material-ui/core/MenuItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 
@@ -21,13 +21,11 @@ import StoreMallDirectoryIcon from '@material-ui/icons/StoreMallDirectory'
 import BookIcon from '@material-ui/icons/Book'
 import ContactMailIcon from '@material-ui/icons/ContactMail'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-
 import Fade from '@material-ui/core/Fade';
 
-import { themeStyles, StyledMenu, StyledMenuItem } from '../styles/theme';
+import { themeStyles, AppMenu, AppMenuItem } from '../../styles';
 
-import { Paths } from '../config/strings'
-import { Paths as PathConfig } from '../config/paths'
+import { Paths, Local } from '../../config'
 
 const URLLink = ({ url, children }: any) => (
   <NavLink
@@ -40,11 +38,10 @@ const URLLink = ({ url, children }: any) => (
   </NavLink>
 )
 
-export const AppMenu = () => {
-
-  const themeClasses = themeStyles()
+export const App = () => {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const themeClasses = themeStyles()
   const open = Boolean(anchorEl);
 
   const handleClick = (event: any) => {
@@ -64,86 +61,85 @@ export const AppMenu = () => {
         >
           <MenuOutlined className={themeClasses.button}/>
         </Button>
-        <StyledMenu
+        <AppMenu
             id="customized-menu"
             anchorEl={anchorEl}
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}
         >
-            <URLLink url={PathConfig.home}>
-              <StyledMenuItem onClick={handleClose}>
+            <URLLink url={Local.home}>
+              <AppMenuItem onClick={handleClose}>
                   <ListItemIcon>
                     <HomeIcon/>
                   </ListItemIcon>
                   <ListItemText primary={Paths.home} />
-              </StyledMenuItem>
+              </AppMenuItem>
             </URLLink>
 
-            <URLLink url={PathConfig.about}>
-                <StyledMenuItem onClick={handleClose}>
+            <URLLink url={Local.about}>
+                <AppMenuItem onClick={handleClose}>
                     <ListItemIcon>
                       <InfoIcon/>
                     </ListItemIcon>
                     <ListItemText primary={Paths.about} />
-                </StyledMenuItem>
+                </AppMenuItem>
             </URLLink>
 
-            <URLLink url={PathConfig.help}>
-                <StyledMenuItem onClick={handleClose}>
+            <URLLink url={Local.help}>
+                <AppMenuItem onClick={handleClose}>
                     <ListItemIcon>
                       <HelpIcon/>
                     </ListItemIcon>
                     <ListItemText primary={Paths.help} />
-                </StyledMenuItem>
+                </AppMenuItem>
             </URLLink>
 
-            <URLLink url={PathConfig.faq}>
-                <StyledMenuItem onClick={handleClose}>
+            <URLLink url={Local.faq}>
+                <AppMenuItem onClick={handleClose}>
                     <ListItemIcon>
                       <QuestionAnswerIcon/>
                     </ListItemIcon>
                     <ListItemText primary={Paths.faq} />
-                </StyledMenuItem>
+                </AppMenuItem>
             </URLLink>
 
-            <URLLink url={PathConfig.directory}>
-                <StyledMenuItem onClick={handleClose}>
+            <URLLink url={Local.directory}>
+                <AppMenuItem onClick={handleClose}>
                     <ListItemIcon>
                       <StoreMallDirectoryIcon/>
                     </ListItemIcon>
                     <ListItemText primary={Paths.directory} />
-                </StyledMenuItem>
+                </AppMenuItem>
             </URLLink>
 
-            <URLLink url={PathConfig.members}>
-                <StyledMenuItem onClick={handleClose}>
+            <URLLink url={Local.members}>
+                <AppMenuItem onClick={handleClose}>
                     <ListItemIcon>
                       <AccountCircleIcon/>
                     </ListItemIcon>
                     <ListItemText primary={Paths.members} />
-                </StyledMenuItem>
+                </AppMenuItem>
             </URLLink>
 
-            <URLLink url={PathConfig.blog}>
-                <StyledMenuItem onClick={handleClose}>
+            <URLLink url={Local.blog}>
+                <AppMenuItem onClick={handleClose}>
                     <ListItemIcon>
                       <BookIcon/>
                     </ListItemIcon>
                     <ListItemText primary={Paths.blog} />
-                </StyledMenuItem>
+                </AppMenuItem>
             </URLLink>
 
-            <URLLink url={PathConfig.contact}>
-                <StyledMenuItem onClick={handleClose}>
+            <URLLink url={Local.contact}>
+                <AppMenuItem onClick={handleClose}>
                     <ListItemIcon>
                       <ContactMailIcon/>
                     </ListItemIcon>
                     <ListItemText primary={Paths.contact} />
-                </StyledMenuItem>
+                </AppMenuItem>
             </URLLink>
-
-        </StyledMenu>
+        </AppMenu>
     </div>
   )
 }

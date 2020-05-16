@@ -3,10 +3,9 @@ import { connect } from 'react-redux'
 
 import Grid from '@material-ui/core/Grid'
 
-import { Formik, Form, Field, FormikProps, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
-import { LinearProgress } from '@material-ui/core'
-import { FormControl } from '@material-ui/core';
+import { Formik, Form, Field, FormikProps, ErrorMessage} from 'formik'
+import { LinearProgress, FormControl } from '@material-ui/core'
 import { TextField } from "material-ui-formik-components"
 
 import { ApplicationState, AppDispatch } from '../../../store/types'
@@ -15,11 +14,9 @@ import { TxData } from '../../../store/helpers/forms/types'
 
 import RightCircleOutlined from '@ant-design/icons/lib/icons/RightCircleOutlined'
 
-import SendIcon from '@material-ui/icons/Send'
-
 import { signup } from '../../../store/account/signup/actions'
 
-import { SignupButton } from '../../../styles/theme'
+import { Signup as SignupButton } from '../../../components/buttons'
 import { TxHelper } from '../../../components/io/apiTxHelper'
 import { Account, GeneralError } from '../../../config/strings'
 

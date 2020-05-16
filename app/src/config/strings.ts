@@ -1,5 +1,3 @@
-import { Paths as configPaths } from './paths'
-
 class App {
 
   static readonly title='Open Credit Network'

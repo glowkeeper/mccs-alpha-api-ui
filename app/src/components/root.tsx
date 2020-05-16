@@ -6,7 +6,7 @@ import { history } from '../utils/history'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { ThemeProvider } from '@material-ui/styles'
 
-import { theme } from '../styles/theme'
+import { theme } from '../styles'
 import { Main } from './pages/main'
 
 const Root = ({ store }: any) => (

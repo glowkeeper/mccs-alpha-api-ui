@@ -6,7 +6,7 @@ import { UserProps, AccountActionTypes } from '../types'
 import { FormActionTypes, TxData } from '../../helpers/forms/types'
 
 import { Account } from '../../../config/strings'
-import { Remote, Paths } from '../../../config/paths'
+import { Remote } from '../../../config/paths'
 import { history } from '../../../utils/history'
 
 export const getInfo = (details: UserProps) => {

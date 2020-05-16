@@ -1,4 +1,4 @@
-class Paths {
+class Local {
 
   static readonly home = '/'
   static readonly about = '/about'
@@ -25,4 +25,4 @@ class Remote {
     static readonly user = '/user'
 }
 
-export { Paths, Remote }
+export { Local, Remote }

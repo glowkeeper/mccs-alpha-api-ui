@@ -1,12 +1,9 @@
 import { ApplicationState, ActionProps, AppDispatch } from '../../types'
-import { SignupProps, AccountActionTypes } from '../types'
+import { SignupProps, AccountActionTypes, UserProps } from '../types'
 import { FormActionTypes, TxData } from '../../helpers/forms/types'
-import { UserProps } from '../types'
-
 import { write } from '../../actions'
 
-import { Account } from '../../../config/strings'
-import { Remote, Paths } from '../../../config/paths'
+import { Account, Remote, Local } from '../../../config'
 import { history } from '../../../utils/history'
 
 export const signup = (details: SignupProps) => {
@@ -52,7 +49,7 @@ export const signup = (details: SignupProps) => {
             info: {}
           }
           dispatch(write({data: userData})(AccountActionTypes.ACCOUNT_INIT))
-          history.push(`${Paths.user}`)
+          history.push(`${Local.user}`)
       })
      .catch(error => {
          //console.log(`${Account.errorSignup}: ${error.message} at ${dateText}`)

@@ -1,4 +1,4 @@
-import { PayloadProps } from '../store/types'
+import { PayloadProps } from '../store'
 import { flatten } from 'flat'
 
 export const getDictEntries = (props: PayloadProps): string => {
