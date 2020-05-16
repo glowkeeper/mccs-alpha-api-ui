@@ -55,7 +55,7 @@ export const signup = (details: SignupProps) => {
           history.push(`${Paths.user}`)
       })
      .catch(error => {
-         console.log(`${Account.errorSignup}: ${error.message} at ${dateText}`)
+         //console.log(`${Account.errorSignup}: ${error.message} at ${dateText}`)
          dispatch(write({data: txData})(FormActionTypes.FORM_FAILURE))
      })
   }

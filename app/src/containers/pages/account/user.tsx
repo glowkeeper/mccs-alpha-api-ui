@@ -26,6 +26,7 @@ type Props = UserStateProps & UserDispatchProps
 const userInfo = (props: Props) => {
 
     useEffect(() => {
+
       const thisData: UserProps = props.info.data as UserProps
       if(thisData.jwt != ""  && typeof thisData.jwt !== 'undefined') {
         props.getInfo(thisData)

@@ -13,9 +13,7 @@ import logo from '../images/logo.png'
 import { Signup } from '../containers/pages/account/signup'
 import { User } from '../containers/pages/account/user'
 
-class Content extends React.Component {
-
-  render() {
+export const Content = () => {
 
     return (
 
@@ -31,7 +29,7 @@ class Content extends React.Component {
         <Route
           name={Paths.signup}
           path={PathConfig.signup}
-          render={() => <Signup/>}
+          render={() => <Signup />}
         />
 
         <Route
@@ -42,7 +40,4 @@ class Content extends React.Component {
 
       </Switch>
     )
-  }
 }
-
-export { Content }

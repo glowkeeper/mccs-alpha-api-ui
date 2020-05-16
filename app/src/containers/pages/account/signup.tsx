@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import Grid from '@material-ui/core/Grid'
@@ -36,11 +36,6 @@ const signupSchema = Yup.object().shape({
     .required(`${GeneralError.errorRequired}`)
 })
 
-interface FormFuncs {
-    submitFunc(submitting: false): Function,
-    resetFunc(): Function
-}
-
 interface FormProps {
   email: string
   pass1: string
@@ -57,43 +52,22 @@ interface SignupDispatchProps {
 
 type Props = FormProps & SignupStateProps & SignupDispatchProps
 
-class SignupForm extends React.Component<Props, FormFuncs> {
+const signupInfo = ( props: Props) => {
 
-    static defaultProps = {
-        email: "",
-        pass1: "",
-        pass2: "",
-        url: "",
-        info: { code: 0, summary: "", info: {}},
-        handleSubmit: (values: SignupProps) => {}
-    }
+    const [isSubmitting, setSubmit] = useState(false)
+    const [summary, setSummary] = useState("")
 
-  constructor (props: Props) {
-   super(props)
-   this.state = {
-      submitFunc: (submitting: false) => Function,
-      resetFunc: () => Function
-    }
-  }
+    useEffect(() => {
 
-  componentDidUpdate(previousProps: SignupStateProps) {
-    if(this.props.info.summary != "" &&  previousProps.info.summary != this.props.info.summary) {
-      this.state.submitFunc(false)
-      this.state.resetFunc()
-    }
-  }
+        const txSummary: string = props.info.summary
+        //console.log(txSummary)
 
-  handleSubmit = (values: FormProps, submit: (submitting: false) => Function, reset: () => Function) => {
-
-    this.setState({submitFunc: submit, resetFunc: reset})
-    const signupInfo: SignupProps = {
-        email: values.email,
-        password: values.pass1
-    }
-    this.props.handleSubmit(signupInfo)
-  }
-
-  render() {
+        if( txSummary != summary ) {
+            console.log("blimey: ", txSummary)
+            setSubmit(false)
+            setSummary(txSummary)
+        }
+    })
 
     return (
 
@@ -107,8 +81,13 @@ class SignupForm extends React.Component<Props, FormFuncs> {
           initialValues={ {email: "", pass1: "", pass2: ""} }
           enableReinitialize={true}
           validationSchema={signupSchema}
-          onSubmit={(values: FormProps, actions: any) => {
-            this.handleSubmit(values, actions.setSubmitting, actions.resetForm)
+          onSubmit={(values: FormProps) => {
+            setSubmit(true)
+            const signupInfo: SignupProps = {
+                email: values.email,
+                password: values.pass1
+            }
+            props.handleSubmit(signupInfo)
           }}
         >
           {(formProps: FormikProps<FormProps>) => (
@@ -134,7 +113,7 @@ class SignupForm extends React.Component<Props, FormFuncs> {
                   />
                   <Grid container>
                       <Grid item xs={12} sm={3}>
-                          <SignupButton type='submit' variant="contained" color="primary" endIcon={<RightCircleOutlined spin={formProps.isSubmitting}/>}>
+                          <SignupButton type='submit' variant="contained" color="primary" endIcon={<RightCircleOutlined spin={isSubmitting}/>}>
                             {Account.signupButton}
                           </SignupButton>
                       </Grid>
@@ -153,7 +132,14 @@ class SignupForm extends React.Component<Props, FormFuncs> {
         </Grid>
       </Grid>
     )
-  }
+}
+
+signupInfo.defaultProps = {
+    email: "",
+    pass1: "",
+    pass2: "",
+    info: { code: 0, summary: "", info: {}},
+    handleSubmit: (values: SignupProps) => {},
 }
 
 const mapStateToProps = (state: ApplicationState): SignupStateProps => {
@@ -171,4 +157,4 @@ const mapDispatchToProps = (dispatch: AppDispatch): SignupDispatchProps => {
 export const Signup = connect<SignupStateProps, SignupDispatchProps, {}, ApplicationState>(
   mapStateToProps,
   mapDispatchToProps
-)(SignupForm)
+)(signupInfo)
