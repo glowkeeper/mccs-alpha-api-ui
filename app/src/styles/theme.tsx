@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
 import { makeStyles } from '@material-ui/styles'
