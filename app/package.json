@@ -23,7 +23,7 @@
     "@material-ui/lab": "^4.0.0-alpha.53",
     "@material-ui/pickers": "^3.2.10",
     "@material-ui/styles": "^4.9.13",
-    "flat": "^5.0.0",
+    "flat": "^5.0.1",
     "formik": "^2.1.4",
     "history": "^4.10.1",
     "material-ui-chip-input": "^2.0.0-beta.2",
